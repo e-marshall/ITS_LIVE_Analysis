@@ -1,0 +1,1461 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>About &#8212; ITS_LIVE_TOOL</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'roadmap';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="About" href="fast_roadmap.html" />
+    <link rel="prev" title="ITS_LIVE_TOOL" href="README.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="README.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">ITS_LIVE_TOOL</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="README.html">
+                    ITS_LIVE_TOOL
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">About</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="fast_roadmap.html">About</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="nbs/05_preprocess.html">Data Preprocessing</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/dcherian/tidy-xarray/main?urlpath=lab/tree/roadmap.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/dcherian/tidy-xarray" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/dcherian/tidy-xarray/issues/new?title=Issue%20on%20page%20%2Froadmap.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/roadmap.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>About</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">About</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-access-organization">Data Access + Organization</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-map-widget">1. Interactive map widget</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#organization-glacier-glacier-centerline-glacier-point-objects">2. Organization: <code class="docutils literal notranslate"><span class="pre">Glacier</span></code>, <code class="docutils literal notranslate"><span class="pre">Glacier_Centerline</span></code>, <code class="docutils literal notranslate"><span class="pre">Glacier_Point</span></code> objects</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-processing">Data Processing</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#inversion">Inversion</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#processing">Processing</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install">Install</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#section-1-data-access-organization">Section 1: Data Access + Organization</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-access-interactive-programmatic-options">Data access: Interactive, Programmatic options</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-use">How to use</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-data-selection-widget">Interactive data selection widget</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-you-want-to-directly-invert-the-dataset-jump-to-section-3">If you want to directly invert the dataset, jump to section 3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-data-objects">Create data objects</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#if-you-ve-only-selected-one-glacier-create-individual-objects-as-follows">If you’ve only selected one glacier, create individual objects as follows:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#if-you-ve-selected-multiple-glaciers-follow-these-examples">If you’ve selected multiple glaciers, follow these examples:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manual-programmatic-data-access">Manual/programmatic data access</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-organization-glacier-glacier-centerline-glacier-point-object-classes">Data Organization: <code class="docutils literal notranslate"><span class="pre">Glacier</span></code>, <code class="docutils literal notranslate"><span class="pre">Glacier_Centerline</span></code>, <code class="docutils literal notranslate"><span class="pre">Glacier_Point</span></code> object classes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#glacier-point"><code class="docutils literal notranslate"><span class="pre">Glacier_Point</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#glacier-centerline"><code class="docutils literal notranslate"><span class="pre">Glacier_Centerline</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#section-2-data-processing">Section 2: Data Processing</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-inspection">Filtering + Inspection</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#section-3-datacube-inversion">Section 3: Datacube Inversion</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#to-dive-into-the-theory-of-the-inversion-check-out-the-06-inversion-ipynb-notebook"><em>To dive into the theory of the inversion, check-out the ‘06_inversion.ipynb’ notebook</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem"><strong>Problem:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inversion-applied-to-its-live"><strong>Inversion applied to ITS_LIVE:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#input-your-parameters-below"><strong>Input your parameters below</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datacubes-extent-and-point-validity">Datacubes Extent and Point Validity</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#map-the-valid-indices-in-a-new-array">Map the valid indices in a new array</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#design-matrices">Design Matrices</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#design-matrix-components">Design Matrix components</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#function-to-loop-through-every-valid-on-glacier-pixel-and-save-the-dataset">Function to loop through every valid on-glacier pixel and save the dataset</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="about">
+<h1>About<a class="headerlink" href="#about" title="Permalink to this heading">#</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">ITS_LIVE_TOOL</span></code> is a package designed to aid users working with the <span class="xref myst">Inter-mission Time Series of Land Ice Velocity and Elevation</span> (ITS_LIVE) dataset. The package provides functions for accessing data as well as various methods to process ITS_LIVE observations. This notebook will demonstrate various elements of the package and walk through the steps of a typical workflow using ITS_LIVE_TOOL.</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Data Access</p></li>
+<li><p>Organization</p></li>
+<li><p>Data Processing</p></li>
+<li><p>Velocity Inversion</p></li>
+</ul>
+<section id="data-access-organization">
+<h3>Data Access + Organization<a class="headerlink" href="#data-access-organization" title="Permalink to this heading">#</a></h3>
+<section id="interactive-map-widget">
+<h4>1. Interactive map widget<a class="headerlink" href="#interactive-map-widget" title="Permalink to this heading">#</a></h4>
+<p>This is an interactive widget design to streamline access ITS_LIVE image pair ice velocity time series.</p>
+</section>
+<section id="organization-glacier-glacier-centerline-glacier-point-objects">
+<h4>2. Organization: <code class="docutils literal notranslate"><span class="pre">Glacier</span></code>, <code class="docutils literal notranslate"><span class="pre">Glacier_Centerline</span></code>, <code class="docutils literal notranslate"><span class="pre">Glacier_Point</span></code> objects<a class="headerlink" href="#organization-glacier-glacier-centerline-glacier-point-objects" title="Permalink to this heading">#</a></h4>
+<p>These are provided to store and keep track of different types of data related to individual units of analysis such as points, centerlines or full glacier surface areas.</p>
+<p>This roadmap document will first demonstrate data access and organization tools before demonstrating the processing tools.</p>
+</section>
+</section>
+<section id="data-processing">
+<h3>Data Processing<a class="headerlink" href="#data-processing" title="Permalink to this heading">#</a></h3>
+<p>We demonstrate and make available two processing routines. Be sure to check out the accompanying <span class="xref myst">book</span> and consider if either of these are appropriate for your data and use case. Note that these methods are in active development and thus should be considered in <em>beta</em> phase. Please perform your own data inspection and due diligence if implementing these methods.</p>
+<section id="inversion">
+<h4>Inversion<a class="headerlink" href="#inversion" title="Permalink to this heading">#</a></h4>
+<p>The Velocity Inversion solves ITS_LIVE’s velocity timestamp issue. It inputs the length in time of all satellite pairs and recalculates a velocity that weighs each ITS_LIVE velocities falling withing the same time-window. It is a way of correcting and interpolating the dataset.</p>
+</section>
+</section>
+<section id="processing">
+<h3>Processing<a class="headerlink" href="#processing" title="Permalink to this heading">#</a></h3>
+<p>We demonstrate and make available two processing routines. Be sure to check out the accompanying <span class="xref myst">book</span> and consider if either of these are appropriate for your data and use case. Note that these methods are in active development and thus should be considered in <em>beta</em> phase. Please perform your own data inspection and due diligence if implementing these methods.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ITS_LIVE_TOOL</span> <span class="kn">import</span> <span class="n">datacube_tools</span><span class="p">,</span> <span class="n">interactive</span><span class="p">,</span> <span class="n">programmatic_access</span><span class="p">,</span> <span class="n">obj_setup</span><span class="p">,</span> <span class="n">preprocess</span><span class="p">,</span> <span class="n">invert</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">ITS_LIVE_TOOL</span> <span class="kn">import</span> <span class="n">datacube_tools</span><span class="p">,</span> <span class="n">interactive</span><span class="p">,</span> <span class="n">programmatic_access</span><span class="p">,</span> <span class="n">obj_setup</span><span class="p">,</span> <span class="n">preprocess</span><span class="p">,</span> <span class="n">invert</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">phd_work</span><span class="o">/</span><span class="n">ITS_LIVE_TOOL</span><span class="o">/</span><span class="n">ITS_LIVE_TOOL</span><span class="o">/</span><span class="n">datacube_tools</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">13</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="c1"># for timing data access</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="kn">import</span> <span class="nn">time</span>
+<span class="ne">---&gt; </span><span class="mi">13</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="kn">import</span> <span class="nn">pyproj</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="kn">import</span> <span class="nn">s3fs</span> <span class="k">as</span> <span class="nn">s3</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;numpy&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pyproj</span>
+<span class="kn">import</span> <span class="nn">matplotlib.path</span> <span class="k">as</span> <span class="nn">path</span>
+<span class="kn">import</span> <span class="nn">s3fs</span>
+<span class="kn">import</span> <span class="nn">zarr</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">scipy</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">timedelta</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.path</span> <span class="k">as</span> <span class="nn">mplp</span>
+<span class="kn">import</span> <span class="nn">ipyleaflet</span> <span class="k">as</span> <span class="nn">ipyl</span>
+<span class="kn">from</span> <span class="nn">ipyleaflet</span> <span class="kn">import</span> <span class="n">WMSLayer</span>
+<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">ipyw</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">ipyleaflet</span> <span class="kn">import</span> <span class="n">Map</span><span class="p">,</span> <span class="n">WMSLayer</span><span class="p">,</span> <span class="n">basemaps</span><span class="p">,</span> <span class="n">GeoData</span>
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">HTML</span>
+<span class="kn">from</span> <span class="nn">owslib.wms</span> <span class="kn">import</span> <span class="n">WebMapService</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">os</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">pyproj</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">matplotlib.path</span> <span class="k">as</span> <span class="nn">path</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;numpy&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="install">
+<h2>Install<a class="headerlink" href="#install" title="Permalink to this heading">#</a></h2>
+<p>Install this package using the below command</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>someday we hope to have a pip or conda install, for now use pip install git+ github repo url</p>
+</div>
+</section>
+</section>
+<section id="section-1-data-access-organization">
+<h1>Section 1: Data Access + Organization<a class="headerlink" href="#section-1-data-access-organization" title="Permalink to this heading">#</a></h1>
+<section id="data-access-interactive-programmatic-options">
+<h2>Data access: Interactive, Programmatic options<a class="headerlink" href="#data-access-interactive-programmatic-options" title="Permalink to this heading">#</a></h2>
+<section id="how-to-use">
+<h3>How to use<a class="headerlink" href="#how-to-use" title="Permalink to this heading">#</a></h3>
+<p>There are two ways to access data using ITS_LIVE_TOOL. The first way is through the interactive widget. This is great for exploratory analysis. The second way is by specifying an RGI ID and point coordinates manually. This is useful if you already know which glacier(s) you want to examine and simply want to pass a list of RGI IDs and coordinates. We’ll first demonstrate using the interactive widget.</p>
+</section>
+</section>
+<section id="interactive-data-selection-widget">
+<h2>Interactive data selection widget<a class="headerlink" href="#interactive-data-selection-widget" title="Permalink to this heading">#</a></h2>
+<p>First, use the interactive map to select data. Do this by right- and left-clicking on the map location where you’d like to access data.
+This will return an object containing the coordinates of the point you clicked, a <code class="docutils literal notranslate"><span class="pre">geopandas.GeoDataFrame</span></code> of the <a class="reference external" href="http://www.glims.org/rgi_user_guide/welcome.html">RGI7</a> data for that glacier and the URL of the ITS_LIVE granule covering the clicked point.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the glacier you want to study lies in multiple ITS_LIVE granules, or you’d like to look at multiple glaciers, click in multiple points and the output objects will be appended with each click.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#| eval: false</span>
+<span class="c1">#| output: false</span>
+
+<span class="n">data_map</span> <span class="o">=</span> <span class="n">interactive</span><span class="o">.</span><span class="n">Widget</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#| eval: false</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1">#| output: false</span>
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">data_map</span> <span class="o">=</span> <span class="n">interactive</span><span class="o">.</span><span class="n">Widget</span><span class="p">()</span>
+
+<span class="ne">NameError</span>: name &#39;interactive&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#| eval: false</span>
+<span class="c1">#| output: false</span>
+<span class="n">data_map</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#| eval: false</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1">#| output: false</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">data_map</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+
+<span class="ne">NameError</span>: name &#39;data_map&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<section id="if-you-want-to-directly-invert-the-dataset-jump-to-section-3">
+<h3>If you want to directly invert the dataset, jump to section 3<a class="headerlink" href="#if-you-want-to-directly-invert-the-dataset-jump-to-section-3" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_map</span><span class="o">.</span><span class="n">added_coords</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">data_map</span><span class="o">.</span><span class="n">added_coords</span>
+
+<span class="ne">NameError</span>: name &#39;data_map&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="create-data-objects">
+<h3>Create data objects<a class="headerlink" href="#create-data-objects" title="Permalink to this heading">#</a></h3>
+<p>Once you have made your selection(s) on the map, use the following methods to create objects that will store your data</p>
+<section id="if-you-ve-only-selected-one-glacier-create-individual-objects-as-follows">
+<h4>If you’ve only selected one glacier, create individual objects as follows:<a class="headerlink" href="#if-you-ve-only-selected-one-glacier-create-individual-objects-as-follows" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_map</span><span class="o">.</span><span class="n">urls</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">data_map</span><span class="o">.</span><span class="n">urls</span>
+
+<span class="ne">NameError</span>: name &#39;data_map&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">glacier</span> <span class="o">=</span> <span class="n">interactive</span><span class="o">.</span><span class="n">create_glacier_from_click</span><span class="p">(</span><span class="n">data_map</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">glacier</span> <span class="o">=</span> <span class="n">interactive</span><span class="o">.</span><span class="n">create_glacier_from_click</span><span class="p">(</span><span class="n">data_map</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;interactive&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">glacier</span><span class="o">.</span><span class="n">rgi_id</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">glacier</span><span class="o">.</span><span class="n">rgi_id</span>
+
+<span class="ne">NameError</span>: name &#39;glacier&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">glacier_point</span> <span class="o">=</span> <span class="n">interactive</span><span class="o">.</span><span class="n">create_glacier_point_from_click</span><span class="p">(</span><span class="n">data_map</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;phony label&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">glacier_point</span> <span class="o">=</span> <span class="n">interactive</span><span class="o">.</span><span class="n">create_glacier_point_from_click</span><span class="p">(</span><span class="n">data_map</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;phony label&#39;</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;interactive&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">glacier_centerline</span> <span class="o">=</span> <span class="n">interactive</span><span class="o">.</span><span class="n">create_glacier_centerline_from_click</span><span class="p">(</span><span class="n">data_map</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">glacier_centerline</span> <span class="o">=</span> <span class="n">interactive</span><span class="o">.</span><span class="n">create_glacier_centerline_from_click</span><span class="p">(</span><span class="n">data_map</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;interactive&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>As you can see, these objects all store data related to the same glacier that was selected, but at different spatial scales. The <code class="docutils literal notranslate"><span class="pre">glacier</span></code> object contains an RGIID, name and the RGI outline and attributes for that glacier.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">glacier</span><span class="o">.</span><span class="n">outline_prj</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">glacier</span><span class="o">.</span><span class="n">outline_prj</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+
+<span class="ne">NameError</span>: name &#39;glacier&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">glacier_point</span></code> object also has the RGI ID and name inherited from the map widget but additionally contains ITS_LIVE image pair velocity time series data for the selected point as well as a 3x3 pixel cube surrounding the point.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">glacier_point</span><span class="o">.</span><span class="n">cube_around_point</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">glacier_point</span><span class="o">.</span><span class="n">cube_around_point</span>
+
+<span class="ne">NameError</span>: name &#39;glacier_point&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">glacier_centerline</span></code> object contains the same RGIID and name information as the first two objects. In addition, it contains OGGM centerline data that are stored as geopandas GeodataFrames.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">glacier_centerline</span><span class="o">.</span><span class="n">main_centerline</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">13</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">glacier_centerline</span><span class="o">.</span><span class="n">main_centerline</span>
+
+<span class="ne">NameError</span>: name &#39;glacier_centerline&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>Each of these objects are meant to act as cotainers to intuitively and efficiently store different types of data as you process and continue to work with ITS_LIVE data.</p>
+<p>The previous steps demonstrated the data access and organization functionality of ITS_LIVE_TOOl. The subsequent sections of this notebook will demonstrate different processing methodologies for working with this dataset.</p>
+</section>
+<section id="if-you-ve-selected-multiple-glaciers-follow-these-examples">
+<h4>If you’ve selected multiple glaciers, follow these examples:<a class="headerlink" href="#if-you-ve-selected-multiple-glaciers-follow-these-examples" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#glacier0, glacier1 = obj_setup.create_multiple_glacier_objs(data_map)[0], obj_setup.create_multiple_glacier_objs(data_map)[1]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># PLEASE DON&#39;T UNCOMMENT, WE ARE WORKING ON THIS</span>
+
+<span class="c1">#glacier_point_ls = obj_setup.create_multiple_glacier_point_objs(data_map)</span>
+<span class="c1">#glacier_pt0, glacier_pt1 = glacier_point_ls[0], glacier_point_ls[1]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="manual-programmatic-data-access">
+<h2>Manual/programmatic data access<a class="headerlink" href="#manual-programmatic-data-access" title="Permalink to this heading">#</a></h2>
+<p>#create <code class="docutils literal notranslate"><span class="pre">Glacier</span></code>, <code class="docutils literal notranslate"><span class="pre">Glacier_Point</span></code>, <code class="docutils literal notranslate"><span class="pre">Glacier_Centerline</span></code> objects</p>
+<p>Create <code class="docutils literal notranslate"><span class="pre">Glacier</span></code>, <code class="docutils literal notranslate"><span class="pre">Glacier_Point</span></code>, <code class="docutils literal notranslate"><span class="pre">Glacier_Centerline</span></code> objects without using widget. Specify point coordinates (<code class="docutils literal notranslate"><span class="pre">list</span></code>), RGIID (<code class="docutils literal notranslate"><span class="pre">str</span></code>) and utm zone* (`str):</p>
+<p>*This is a temporary patch, soon won’t have to specify utm zone to create object.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">point</span> <span class="o">=</span> <span class="p">[</span><span class="mf">76.36013929649597</span><span class="p">,</span> <span class="mf">35.73912785079385</span><span class="p">]</span>
+<span class="n">rgiid</span> <span class="o">=</span> <span class="s1">&#39;RGI60-14.06794&#39;</span>
+<span class="n">utm</span> <span class="o">=</span> <span class="s1">&#39;EPSG:32643&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">glacier</span> <span class="o">=</span> <span class="n">programmatic_access</span><span class="o">.</span><span class="n">create_glacier_obj</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span><span class="n">rgiid</span><span class="p">,</span> <span class="n">utm</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">17</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">glacier</span> <span class="o">=</span> <span class="n">programmatic_access</span><span class="o">.</span><span class="n">create_glacier_obj</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span><span class="n">rgiid</span><span class="p">,</span> <span class="n">utm</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;programmatic_access&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">glacier</span><span class="o">.</span><span class="n">name</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">18</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">glacier</span><span class="o">.</span><span class="n">name</span>
+
+<span class="ne">NameError</span>: name &#39;glacier&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">glacier</span><span class="o">.</span><span class="n">rgi_id</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">19</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">glacier</span><span class="o">.</span><span class="n">rgi_id</span>
+
+<span class="ne">NameError</span>: name &#39;glacier&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">glacier</span><span class="o">.</span><span class="n">outline_prj</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">20</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">glacier</span><span class="o">.</span><span class="n">outline_prj</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+
+<span class="ne">NameError</span>: name &#39;glacier&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">glacier_pt</span> <span class="o">=</span> <span class="n">programmatic_access</span><span class="o">.</span><span class="n">create_glacier_point_obj</span><span class="p">(</span><span class="n">point</span><span class="p">,</span> <span class="s1">&#39;label&#39;</span><span class="p">,</span> <span class="n">rgiid</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">21</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">glacier_pt</span> <span class="o">=</span> <span class="n">programmatic_access</span><span class="o">.</span><span class="n">create_glacier_point_obj</span><span class="p">(</span><span class="n">point</span><span class="p">,</span> <span class="s1">&#39;label&#39;</span><span class="p">,</span> <span class="n">rgiid</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;programmatic_access&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">glacier_centerline</span> <span class="o">=</span> <span class="n">programmatic_access</span><span class="o">.</span><span class="n">create_glacier_centerline_obj</span><span class="p">(</span><span class="s1">&#39;label&#39;</span><span class="p">,</span> <span class="n">rgiid</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">22</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">glacier_centerline</span> <span class="o">=</span> <span class="n">programmatic_access</span><span class="o">.</span><span class="n">create_glacier_centerline_obj</span><span class="p">(</span><span class="s1">&#39;label&#39;</span><span class="p">,</span> <span class="n">rgiid</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;programmatic_access&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">glacier_centerline</span><span class="o">.</span><span class="n">centerlines</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">23</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">glacier_centerline</span><span class="o">.</span><span class="n">centerlines</span>
+
+<span class="ne">NameError</span>: name &#39;glacier_centerline&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="data-organization-glacier-glacier-centerline-glacier-point-object-classes">
+<h2>Data Organization: <code class="docutils literal notranslate"><span class="pre">Glacier</span></code>, <code class="docutils literal notranslate"><span class="pre">Glacier_Centerline</span></code>, <code class="docutils literal notranslate"><span class="pre">Glacier_Point</span></code> object classes<a class="headerlink" href="#data-organization-glacier-glacier-centerline-glacier-point-object-classes" title="Permalink to this heading">#</a></h2>
+<section id="glacier-point">
+<h3><code class="docutils literal notranslate"><span class="pre">Glacier_Point</span></code><a class="headerlink" href="#glacier-point" title="Permalink to this heading">#</a></h3>
+<p>This object inherits name and RGIID attributes from the <code class="docutils literal notranslate"><span class="pre">Glacier</span></code> object described aboev (or you can input them manually). It takes the coordinate information specified in the widget and list of variables of interest and returns an object containing ITS_LIVE image pair time series datasets for the specified point anda 3x3 pixel cube surrounding the specified point. Check out the docs for a description of all of the attributes and methods associated with this object.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">glacier_pt</span><span class="o">.</span><span class="n">point_gdf</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">24</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">glacier_pt</span><span class="o">.</span><span class="n">point_gdf</span>
+
+<span class="ne">NameError</span>: name &#39;glacier_pt&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">glacier_pt</span><span class="o">.</span><span class="n">cube_around_point</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">25</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">glacier_pt</span><span class="o">.</span><span class="n">cube_around_point</span>
+
+<span class="ne">NameError</span>: name &#39;glacier_pt&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="glacier-centerline">
+<h3><code class="docutils literal notranslate"><span class="pre">Glacier_Centerline</span></code><a class="headerlink" href="#glacier-centerline" title="Permalink to this heading">#</a></h3>
+<p>Similarly to the <code class="docutils literal notranslate"><span class="pre">Glacier_Point</span></code> object, a <code class="docutils literal notranslate"><span class="pre">Glacier_Centerline</span></code> object inherits some basic information from a <code class="docutils literal notranslate"><span class="pre">Glacier</span></code> object, but this can also be specified manually if you don’t want to create a <code class="docutils literal notranslate"><span class="pre">Glacier</span></code> method beforehand. A <code class="docutils literal notranslate"><span class="pre">Glacier_Centerline</span></code> object has attributes called <code class="docutils literal notranslate"><span class="pre">centerlines</span></code> and <code class="docutils literal notranslate"><span class="pre">main_centerline</span></code>. These are both <code class="docutils literal notranslate"><span class="pre">Geopandas.GeoDataframe</span></code> objects containing OGGM flowline data associated with this glacier. They also contain ITS_LIVE image pair velocity time series clipped to the centerline (<strong>still being implemented</strong>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">glacier_centerline</span> <span class="o">=</span> <span class="n">programmatic_access</span><span class="o">.</span><span class="n">create_glacier_centerline_obj</span><span class="p">(</span><span class="s1">&#39;Jorge Montt&#39;</span><span class="p">,</span> <span class="s1">&#39;RGI60-17.06074&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">26</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">glacier_centerline</span> <span class="o">=</span> <span class="n">programmatic_access</span><span class="o">.</span><span class="n">create_glacier_centerline_obj</span><span class="p">(</span><span class="s1">&#39;Jorge Montt&#39;</span><span class="p">,</span> <span class="s1">&#39;RGI60-17.06074&#39;</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;programmatic_access&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">glacier_centerline</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">27</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">glacier_centerline</span>
+
+<span class="ne">NameError</span>: name &#39;glacier_centerline&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>Each of these objects are meant to act as cotainers to intuitively and efficiently store different types of data as you process and continue to work with ITS_LIVE data.</p>
+<p>The previous steps demonstrated the data access and organization functionality of ITS_LIVE_TOOl. The subsequent sections of this notebook will demonstrate different processing methodologies for working with this dataset.</p>
+</section>
+</section>
+</section>
+<section id="section-2-data-processing">
+<h1>Section 2: Data Processing<a class="headerlink" href="#section-2-data-processing" title="Permalink to this heading">#</a></h1>
+<section id="filtering-inspection">
+<h2>Filtering + Inspection<a class="headerlink" href="#filtering-inspection" title="Permalink to this heading">#</a></h2>
+<p>Examples of situations where outlier detection may be necessary. We present 3 methods for outlier detection.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>add images of figures from notebook here ?</p>
+</div>
+</section>
+</section>
+<section id="section-3-datacube-inversion">
+<h1>Section 3: Datacube Inversion<a class="headerlink" href="#section-3-datacube-inversion" title="Permalink to this heading">#</a></h1>
+<section id="to-dive-into-the-theory-of-the-inversion-check-out-the-06-inversion-ipynb-notebook">
+<h2><em>To dive into the theory of the inversion, check-out the ‘06_inversion.ipynb’ notebook</em><a class="headerlink" href="#to-dive-into-the-theory-of-the-inversion-check-out-the-06-inversion-ipynb-notebook" title="Permalink to this heading">#</a></h2>
+<br>
+</section>
+<section id="problem">
+<h2><strong>Problem:</strong><a class="headerlink" href="#problem" title="Permalink to this heading">#</a></h2>
+<p><em>Find a smooth regularly spaced timeseries of velocities given a set of average measurements of possibly overlapping and variable length time intervals</em></p>
+<br>
+</section>
+<section id="inversion-applied-to-its-live">
+<h2><strong>Inversion applied to ITS_LIVE:</strong><a class="headerlink" href="#inversion-applied-to-its-live" title="Permalink to this heading">#</a></h2>
+<p>ITS_LIVE is a great dataset that achieves high-density measurements globally, on a long timescale, using the same sensors and method.
+However it suffers from one main problem: <strong>mid_dates</strong> (timestamps), its attribution of a timestamp for a measurement. For example, if ITS_LIVE uses two images a month apart, it really measures the average velocity for this whole month. Instead, ITS_LIVE attributes to the velocity a timestamp in the middle of the month.</p>
+<p>The inversion computes all the timestamps and the satellite-pairs length, and calculates a solution depending on all the available values.</p>
+<br>
+</section>
+<section id="input-your-parameters-below">
+<h2><strong>Input your parameters below</strong><a class="headerlink" href="#input-your-parameters-below" title="Permalink to this heading">#</a></h2>
+<p><em>Useful information:</em></p>
+<ul class="simple">
+<li><p>GPU generally runs the inversion faster, but might be slower when using the spatial regularization.</p></li>
+<li><p>High lambda encouraged for non-surging glacier</p></li>
+<li><p>spatial_shape ‘cross’ is hard-coded because ‘ring’ would take a lot of RAM and the code would be much more complicated.</p></li>
+<li><p>spatial_regularization: False if you want a faster computation, slightly less accurate.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># In case you didn&#39;t run the cell that grabs the urls</span>
+<span class="n">coords</span><span class="p">,</span> <span class="n">gpdf</span><span class="p">,</span> <span class="n">urls</span> <span class="o">=</span> <span class="n">obj_setup</span><span class="o">.</span><span class="n">return_clicked_info</span><span class="p">(</span><span class="n">data_map</span><span class="p">)</span>
+
+<span class="c1"># In case you haven&#39;t created the centerline</span>
+<span class="n">glacier_centerline</span> <span class="o">=</span> <span class="n">obj_setup</span><span class="o">.</span><span class="n">create_glacier_centerline_from_click</span><span class="p">(</span><span class="n">data_map</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="c1">###### INPUT YOUR PARAMETERS #######</span>
+
+<span class="n">name_cube</span> <span class="o">=</span> <span class="s1">&#39;Weird&#39;</span> <span class="c1"># Name of the dataset</span>
+
+<span class="n">mission</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1"># &#39;None&#39; if you want all the data, &#39;S1&#39; for Sentinel-1 only, &#39;L&#39; for Landsat only, etc.. .</span>
+
+<span class="n">lamb</span> <span class="o">=</span> <span class="mi">5</span> <span class="c1"># Smoothing coefficient: the higher the value, the more the inversion favors a smooth output. BAD for surging glaciers, GOOD for non-surging glaciers</span>
+
+<span class="n">derivative</span> <span class="o">=</span> <span class="mi">2</span> <span class="c1"># Derivative degree for the inversion. Doesn&#39;t change much unless you have a specific reason to choose 1 or 2 (1st or 2nd derivative)</span>
+
+<span class="n">day_interval</span> <span class="o">=</span> <span class="mi">60</span> <span class="c1"># Amount of days in between each inversion value. The higher, the faster the inversion. But you also lose in temporal resolution. 12 here because Sentinel-1 repeat-time is 12.</span>
+
+<span class="n">sdate</span> <span class="o">=</span> <span class="s1">&#39;2019-01-01&#39;</span> <span class="c1"># Start date, format &#39;YYYY-MM-DD&#39; OR None if you want to grab the entire timeseries available</span>
+
+<span class="n">edate</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1"># End date, format &#39;YYYY-MM-DD&#39; OR None if you want to grab the entire timeseries available</span>
+
+<span class="n">GPU</span> <span class="o">=</span> <span class="kc">True</span> <span class="c1"># True if you want to use GPU, False if you want to use CPU</span>
+
+<span class="n">spatial_regularization</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1"># True if you want to use spatial regularization, False if you only want to use temporal regularization</span>
+
+<span class="k">if</span> <span class="n">spatial_regularization</span><span class="p">:</span>
+    <span class="n">derivative</span> <span class="o">=</span> <span class="mi">2</span> <span class="c1"># It is better to do a central difference scheme than forward difference in this case</span>
+    <span class="n">spatial_shape</span> <span class="o">=</span> <span class="s1">&#39;cross&#39;</span> <span class="c1"># &#39;ring&#39; has not been implemented yet, and tests show a huge in increase in computation time</span>
+    <span class="n">nb_pts_tot</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">nb_pts_tot</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">spatial_shape</span> <span class="o">=</span> <span class="kc">None</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">28</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># In case you didn&#39;t run the cell that grabs the urls</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">coords</span><span class="p">,</span> <span class="n">gpdf</span><span class="p">,</span> <span class="n">urls</span> <span class="o">=</span> <span class="n">obj_setup</span><span class="o">.</span><span class="n">return_clicked_info</span><span class="p">(</span><span class="n">data_map</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># In case you haven&#39;t created the centerline</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">glacier_centerline</span> <span class="o">=</span> <span class="n">obj_setup</span><span class="o">.</span><span class="n">create_glacier_centerline_from_click</span><span class="p">(</span><span class="n">data_map</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;obj_setup&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Create dictionnaries to hold variables for each datacube</strong></p>
+<p>Each datacube has multiple variables associated with it. We gather all these variables in dictionnaries such as 1 datacube = 1 dictionnary.
+We then gather all the dictionnaries into one for easier organization.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_tot</span><span class="p">,</span> <span class="n">Y_tot</span><span class="p">,</span> <span class="n">X_valid</span><span class="p">,</span> <span class="n">Y_valid</span><span class="p">,</span> <span class="n">data_dict</span><span class="p">,</span> <span class="n">urls</span> <span class="o">=</span> <span class="n">invert</span><span class="o">.</span><span class="n">create_data_dict</span><span class="p">(</span><span class="n">urls</span><span class="p">,</span> <span class="n">mission</span><span class="p">,</span> <span class="n">lamb</span><span class="p">,</span> <span class="n">derivative</span><span class="p">,</span> <span class="n">day_interval</span><span class="p">,</span> <span class="n">data_map</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">29</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">X_tot</span><span class="p">,</span> <span class="n">Y_tot</span><span class="p">,</span> <span class="n">X_valid</span><span class="p">,</span> <span class="n">Y_valid</span><span class="p">,</span> <span class="n">data_dict</span><span class="p">,</span> <span class="n">urls</span> <span class="o">=</span> <span class="n">invert</span><span class="o">.</span><span class="n">create_data_dict</span><span class="p">(</span><span class="n">urls</span><span class="p">,</span> <span class="n">mission</span><span class="p">,</span> <span class="n">lamb</span><span class="p">,</span> <span class="n">derivative</span><span class="p">,</span> <span class="n">day_interval</span><span class="p">,</span> <span class="n">data_map</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;invert&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="datacubes-extent-and-point-validity">
+<h2>Datacubes Extent and Point Validity<a class="headerlink" href="#datacubes-extent-and-point-validity" title="Permalink to this heading">#</a></h2>
+<p>Designed to grab the extents of the datacubes, and determines which pixel belongs to the GOI (Glacier Of Interest). This way we do not lose time inverting for empty pixels.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">url</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">urls</span><span class="p">))):</span>
+    <span class="n">X_tot</span><span class="p">,</span> <span class="n">Y_tot</span><span class="p">,</span> <span class="n">X_valid</span><span class="p">,</span> <span class="n">Y_valid</span> <span class="o">=</span> <span class="n">invert</span><span class="o">.</span><span class="n">get_extents</span><span class="p">(</span><span class="n">urls</span><span class="p">[</span><span class="n">url</span><span class="p">],</span> <span class="n">X_tot</span><span class="p">,</span> <span class="n">Y_tot</span><span class="p">,</span> <span class="n">X_valid</span><span class="p">,</span> <span class="n">Y_valid</span><span class="p">,</span> <span class="n">mission</span><span class="p">,</span> <span class="n">lamb</span><span class="p">,</span> <span class="n">derivative</span><span class="p">,</span> <span class="n">day_interval</span><span class="p">,</span> <span class="n">data_map</span><span class="p">,</span> <span class="n">data_dict</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">30</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">for</span> <span class="n">url</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">urls</span><span class="p">))):</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="n">X_tot</span><span class="p">,</span> <span class="n">Y_tot</span><span class="p">,</span> <span class="n">X_valid</span><span class="p">,</span> <span class="n">Y_valid</span> <span class="o">=</span> <span class="n">invert</span><span class="o">.</span><span class="n">get_extents</span><span class="p">(</span><span class="n">urls</span><span class="p">[</span><span class="n">url</span><span class="p">],</span> <span class="n">X_tot</span><span class="p">,</span> <span class="n">Y_tot</span><span class="p">,</span> <span class="n">X_valid</span><span class="p">,</span> <span class="n">Y_valid</span><span class="p">,</span> <span class="n">mission</span><span class="p">,</span> <span class="n">lamb</span><span class="p">,</span> <span class="n">derivative</span><span class="p">,</span> <span class="n">day_interval</span><span class="p">,</span> <span class="n">data_map</span><span class="p">,</span> <span class="n">data_dict</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;tqdm&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<section id="map-the-valid-indices-in-a-new-array">
+<h3>Map the valid indices in a new array<a class="headerlink" href="#map-the-valid-indices-in-a-new-array" title="Permalink to this heading">#</a></h3>
+<p>This new array spans all the datacubes. We take the footprint of the GOI, insert-it in an array, and map in this array which pixel is on-glacier.
+It allows to run the inversion for glacier-points only, accross all the datacubes, and store the inversion output in an array that represents the glacier’s shape.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">space_interval</span><span class="p">,</span> <span class="n">min_date</span><span class="p">,</span> <span class="n">max_date</span><span class="p">,</span> <span class="n">template</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">neighbor_idx</span><span class="p">,</span> <span class="n">x_indices_centerline</span><span class="p">,</span> <span class="n">y_indices_centerline</span><span class="p">,</span> <span class="n">X_arr</span><span class="p">,</span> <span class="n">X_MIN</span><span class="p">,</span> <span class="n">X_MAX</span><span class="p">,</span> <span class="n">Y_arr</span><span class="p">,</span> <span class="n">Y_MIN</span><span class="p">,</span> <span class="n">Y_MAX</span><span class="p">,</span> <span class="n">x_matches</span><span class="p">,</span> <span class="n">y_matches</span> <span class="o">=</span> <span class="n">invert</span><span class="o">.</span><span class="n">cubes_intersection</span><span class="p">(</span><span class="n">X_tot</span><span class="p">,</span> <span class="n">Y_tot</span><span class="p">,</span> <span class="n">X_valid</span><span class="p">,</span> <span class="n">Y_valid</span><span class="p">,</span> <span class="n">data_dict</span><span class="p">,</span> <span class="n">urls</span><span class="p">,</span> <span class="n">spatial_regularization</span><span class="p">,</span> <span class="n">mission</span><span class="p">,</span> <span class="n">lamb</span><span class="p">,</span> <span class="n">derivative</span><span class="p">,</span> <span class="n">day_interval</span><span class="p">,</span> <span class="n">sdate</span><span class="p">,</span> <span class="n">edate</span><span class="p">,</span> <span class="n">nb_pts_tot</span><span class="p">,</span> <span class="n">glacier_centerline</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">31</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">space_interval</span><span class="p">,</span> <span class="n">min_date</span><span class="p">,</span> <span class="n">max_date</span><span class="p">,</span> <span class="n">template</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">neighbor_idx</span><span class="p">,</span> <span class="n">x_indices_centerline</span><span class="p">,</span> <span class="n">y_indices_centerline</span><span class="p">,</span> <span class="n">X_arr</span><span class="p">,</span> <span class="n">X_MIN</span><span class="p">,</span> <span class="n">X_MAX</span><span class="p">,</span> <span class="n">Y_arr</span><span class="p">,</span> <span class="n">Y_MIN</span><span class="p">,</span> <span class="n">Y_MAX</span><span class="p">,</span> <span class="n">x_matches</span><span class="p">,</span> <span class="n">y_matches</span> <span class="o">=</span> <span class="n">invert</span><span class="o">.</span><span class="n">cubes_intersection</span><span class="p">(</span><span class="n">X_tot</span><span class="p">,</span> <span class="n">Y_tot</span><span class="p">,</span> <span class="n">X_valid</span><span class="p">,</span> <span class="n">Y_valid</span><span class="p">,</span> <span class="n">data_dict</span><span class="p">,</span> <span class="n">urls</span><span class="p">,</span> <span class="n">spatial_regularization</span><span class="p">,</span> <span class="n">mission</span><span class="p">,</span> <span class="n">lamb</span><span class="p">,</span> <span class="n">derivative</span><span class="p">,</span> <span class="n">day_interval</span><span class="p">,</span> <span class="n">sdate</span><span class="p">,</span> <span class="n">edate</span><span class="p">,</span> <span class="n">nb_pts_tot</span><span class="p">,</span> <span class="n">glacier_centerline</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;invert&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="design-matrices">
+<h2>Design Matrices<a class="headerlink" href="#design-matrices" title="Permalink to this heading">#</a></h2>
+<p>This function creates 1 design matrix per cube. Knowing that each cube has different time stamps (different image pairs), but the possible dates for the image pairs are the same for every pixel of the datacube, we can pre-compute 1 design-matrix for each cube. We will simply mask-out the rows that represent time steps for which our point being inverted does not have any value.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reg_mat_space</span><span class="p">,</span> <span class="n">reg_mat_time</span><span class="p">,</span> <span class="n">dates_nonum</span><span class="p">,</span> <span class="n">dates</span><span class="p">,</span> <span class="n">data_dict</span> <span class="o">=</span> <span class="n">invert</span><span class="o">.</span><span class="n">design_matrices</span><span class="p">(</span><span class="n">urls</span><span class="p">,</span> <span class="n">min_date</span><span class="p">,</span> <span class="n">max_date</span><span class="p">,</span> <span class="n">mission</span><span class="p">,</span> <span class="n">lamb</span><span class="p">,</span> <span class="n">derivative</span><span class="p">,</span> <span class="n">day_interval</span><span class="p">,</span> <span class="n">space_interval</span><span class="p">,</span> <span class="n">sdate</span><span class="p">,</span> <span class="n">edate</span><span class="p">,</span> <span class="n">data_dict</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">32</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">reg_mat_space</span><span class="p">,</span> <span class="n">reg_mat_time</span><span class="p">,</span> <span class="n">dates_nonum</span><span class="p">,</span> <span class="n">dates</span><span class="p">,</span> <span class="n">data_dict</span> <span class="o">=</span> <span class="n">invert</span><span class="o">.</span><span class="n">design_matrices</span><span class="p">(</span><span class="n">urls</span><span class="p">,</span> <span class="n">min_date</span><span class="p">,</span> <span class="n">max_date</span><span class="p">,</span> <span class="n">mission</span><span class="p">,</span> <span class="n">lamb</span><span class="p">,</span> <span class="n">derivative</span><span class="p">,</span> <span class="n">day_interval</span><span class="p">,</span> <span class="n">space_interval</span><span class="p">,</span> <span class="n">sdate</span><span class="p">,</span> <span class="n">edate</span><span class="p">,</span> <span class="n">data_dict</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;invert&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<section id="design-matrix-components">
+<h3>Design Matrix components<a class="headerlink" href="#design-matrix-components" title="Permalink to this heading">#</a></h3>
+<p>Build the last bricks of the design matrix depending on how many points we use in the regularization &amp; initialize host arrays for the inversion outputs</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vxInv</span><span class="p">,</span> <span class="n">vyInv</span><span class="p">,</span> <span class="n">len_pt_inverted</span><span class="p">,</span> <span class="n">SRT</span><span class="p">,</span> <span class="n">SRS</span><span class="p">,</span> <span class="n">space_reg_mat</span><span class="p">,</span> <span class="n">time_reg_mat</span> <span class="o">=</span>  <span class="n">invert</span><span class="o">.</span><span class="n">extend_Matrices</span><span class="p">(</span><span class="n">reg_mat_time</span><span class="p">,</span> <span class="n">nb_pts_tot</span><span class="p">,</span> <span class="n">reg_mat_space</span><span class="p">,</span> <span class="n">spatial_regularization</span><span class="p">,</span> <span class="n">dates</span><span class="p">,</span> <span class="n">template</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">33</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">vxInv</span><span class="p">,</span> <span class="n">vyInv</span><span class="p">,</span> <span class="n">len_pt_inverted</span><span class="p">,</span> <span class="n">SRT</span><span class="p">,</span> <span class="n">SRS</span><span class="p">,</span> <span class="n">space_reg_mat</span><span class="p">,</span> <span class="n">time_reg_mat</span> <span class="o">=</span>  <span class="n">invert</span><span class="o">.</span><span class="n">extend_Matrices</span><span class="p">(</span><span class="n">reg_mat_time</span><span class="p">,</span> <span class="n">nb_pts_tot</span><span class="p">,</span> <span class="n">reg_mat_space</span><span class="p">,</span> <span class="n">spatial_regularization</span><span class="p">,</span> <span class="n">dates</span><span class="p">,</span> <span class="n">template</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;invert&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="function-to-loop-through-every-valid-on-glacier-pixel-and-save-the-dataset">
+<h3>Function to loop through every valid on-glacier pixel and save the dataset<a class="headerlink" href="#function-to-loop-through-every-valid-on-glacier-pixel-and-save-the-dataset" title="Permalink to this heading">#</a></h3>
+<p>The following function calls the point’s timeseries from ITS_LIVE, assembles the design matrix, and calls the inversion function. Once it is done, it stores the inversion output in the host matrices (vx &amp; vy). It saves a copy of the matrices as a netcdf object every 10k iterations, and creates a text file printing how many iterations have been computed, every 100 iterations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Determine the GPU in your system if you have one</span>
+<span class="k">if</span> <span class="n">GPU</span><span class="p">:</span>     
+    <span class="kn">import</span> <span class="nn">torch</span>
+    <span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cuda:0&quot;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">device</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="c1"># Run the inversions for vx and vy and populate vxInv, vyInv</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y_matches</span><span class="p">))):</span>
+
+    <span class="n">vxInv</span><span class="p">,</span> <span class="n">vyInv</span> <span class="o">=</span> <span class="n">invert</span><span class="o">.</span><span class="n">looper</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">name_cube</span><span class="p">,</span> <span class="n">vxInv</span><span class="p">,</span> <span class="n">vyInv</span><span class="p">,</span> <span class="n">GPU</span><span class="p">,</span> <span class="n">spatial_regularization</span><span class="p">,</span> <span class="n">nb_pts_tot</span><span class="p">,</span> <span class="n">time_reg_mat</span><span class="p">,</span> <span class="n">space_reg_mat</span><span class="p">,</span> <span class="n">len_pt_inverted</span><span class="p">,</span> <span class="n">data_dict</span><span class="p">,</span> <span class="n">urls</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">neighbor_idx</span><span class="p">,</span> <span class="n">x_matches</span><span class="p">,</span> <span class="n">y_matches</span><span class="p">,</span> <span class="n">X_arr</span><span class="p">,</span> <span class="n">X_MIN</span><span class="p">,</span> <span class="n">X_MAX</span><span class="p">,</span> <span class="n">Y_arr</span><span class="p">,</span> <span class="n">Y_MIN</span><span class="p">,</span> <span class="n">Y_MAX</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">dates_nonum</span><span class="p">,</span> <span class="n">x_indices_centerline</span><span class="p">,</span> <span class="n">y_indices_centerline</span><span class="p">,</span> <span class="n">SRT</span><span class="p">,</span> <span class="n">SRS</span><span class="p">)</span>
+    
+<span class="n">invert</span><span class="o">.</span><span class="n">save_dataset</span><span class="p">(</span><span class="n">name_cube</span><span class="p">,</span> <span class="n">vxInv</span><span class="p">,</span> <span class="n">vyInv</span><span class="p">,</span> <span class="n">dates_nonum</span><span class="p">,</span> <span class="n">X_arr</span><span class="p">,</span> <span class="n">Y_arr</span><span class="p">,</span> <span class="n">X_MIN</span><span class="p">,</span> <span class="n">X_MAX</span><span class="p">,</span> <span class="n">Y_MIN</span><span class="p">,</span> <span class="n">Y_MAX</span><span class="p">,</span> <span class="n">x_indices_centerline</span><span class="p">,</span> <span class="n">y_indices_centerline</span><span class="p">,</span> <span class="n">data_dict</span><span class="p">,</span> <span class="n">urls</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">34</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Determine the GPU in your system if you have one</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="k">if</span> <span class="n">GPU</span><span class="p">:</span>     
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="kn">import</span> <span class="nn">torch</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cuda:0&quot;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;GPU&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="README.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">ITS_LIVE_TOOL</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="fast_roadmap.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">About</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">About</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-access-organization">Data Access + Organization</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-map-widget">1. Interactive map widget</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#organization-glacier-glacier-centerline-glacier-point-objects">2. Organization: <code class="docutils literal notranslate"><span class="pre">Glacier</span></code>, <code class="docutils literal notranslate"><span class="pre">Glacier_Centerline</span></code>, <code class="docutils literal notranslate"><span class="pre">Glacier_Point</span></code> objects</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-processing">Data Processing</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#inversion">Inversion</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#processing">Processing</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install">Install</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#section-1-data-access-organization">Section 1: Data Access + Organization</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-access-interactive-programmatic-options">Data access: Interactive, Programmatic options</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-use">How to use</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-data-selection-widget">Interactive data selection widget</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-you-want-to-directly-invert-the-dataset-jump-to-section-3">If you want to directly invert the dataset, jump to section 3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-data-objects">Create data objects</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#if-you-ve-only-selected-one-glacier-create-individual-objects-as-follows">If you’ve only selected one glacier, create individual objects as follows:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#if-you-ve-selected-multiple-glaciers-follow-these-examples">If you’ve selected multiple glaciers, follow these examples:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manual-programmatic-data-access">Manual/programmatic data access</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-organization-glacier-glacier-centerline-glacier-point-object-classes">Data Organization: <code class="docutils literal notranslate"><span class="pre">Glacier</span></code>, <code class="docutils literal notranslate"><span class="pre">Glacier_Centerline</span></code>, <code class="docutils literal notranslate"><span class="pre">Glacier_Point</span></code> object classes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#glacier-point"><code class="docutils literal notranslate"><span class="pre">Glacier_Point</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#glacier-centerline"><code class="docutils literal notranslate"><span class="pre">Glacier_Centerline</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#section-2-data-processing">Section 2: Data Processing</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-inspection">Filtering + Inspection</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#section-3-datacube-inversion">Section 3: Datacube Inversion</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#to-dive-into-the-theory-of-the-inversion-check-out-the-06-inversion-ipynb-notebook"><em>To dive into the theory of the inversion, check-out the ‘06_inversion.ipynb’ notebook</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem"><strong>Problem:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inversion-applied-to-its-live"><strong>Inversion applied to ITS_LIVE:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#input-your-parameters-below"><strong>Input your parameters below</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datacubes-extent-and-point-validity">Datacubes Extent and Point Validity</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#map-the-valid-indices-in-a-new-array">Map the valid indices in a new array</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#design-matrices">Design Matrices</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#design-matrix-components">Design Matrix components</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#function-to-loop-through-every-valid-on-glacier-pixel-and-save-the-dataset">Function to loop through every valid on-glacier pixel and save the dataset</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Victor Devaux-Chupin, Emma Marshall
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
