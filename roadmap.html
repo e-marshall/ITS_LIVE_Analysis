@@ -509,6 +509,21 @@ document.write(`
 <p>We demonstrate and make available two processing routines. Be sure to check out the accompanying <span class="xref myst">book</span> and consider if either of these are appropriate for your data and use case. Note that these methods are in active development and thus should be considered in <em>beta</em> phase. Please perform your own data inspection and due diligence if implementing these methods.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">pip</span> install numpy
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: numpy in /home/emmamarshall/miniconda3/envs/itslivetool_pyproj/lib/python3.12/site-packages (1.26.2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Note: you may need to restart the kernel to use updated packages.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ITS_LIVE_TOOL</span> <span class="kn">import</span> <span class="n">datacube_tools</span><span class="p">,</span> <span class="n">interactive</span><span class="p">,</span> <span class="n">programmatic_access</span><span class="p">,</span> <span class="n">obj_setup</span><span class="p">,</span> <span class="n">preprocess</span><span class="p">,</span> <span class="n">invert</span>
 </pre></div>
 </div>
@@ -516,17 +531,17 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">ITS_LIVE_TOOL</span> <span class="kn">import</span> <span class="n">datacube_tools</span><span class="p">,</span> <span class="n">interactive</span><span class="p">,</span> <span class="n">programmatic_access</span><span class="p">,</span> <span class="n">obj_setup</span><span class="p">,</span> <span class="n">preprocess</span><span class="p">,</span> <span class="n">invert</span>
 
-<span class="n">File</span> <span class="o">~/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">phd_work</span><span class="o">/</span><span class="n">ITS_LIVE_TOOL</span><span class="o">/</span><span class="n">ITS_LIVE_TOOL</span><span class="o">/</span><span class="n">datacube_tools</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">13</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="c1"># for timing data access</span>
+<span class="n">File</span> <span class="o">~/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">phd_work</span><span class="o">/</span><span class="n">ITS_LIVE_TOOL</span><span class="o">/</span><span class="n">ITS_LIVE_TOOL</span><span class="o">/</span><span class="n">datacube_tools</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">14</span>
 <span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="kn">import</span> <span class="nn">time</span>
-<span class="ne">---&gt; </span><span class="mi">13</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="kn">import</span> <span class="nn">pyproj</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="ne">---&gt; </span><span class="mi">14</span> <span class="kn">import</span> <span class="nn">pyproj</span>
 <span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="kn">import</span> <span class="nn">s3fs</span> <span class="k">as</span> <span class="nn">s3</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="c1"># for datacube xarray/zarr access</span>
 
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;numpy&#39;
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;pyproj&#39;
 </pre></div>
 </div>
 </div>
@@ -562,13 +577,14 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">os</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">pyproj</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">pyproj</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">matplotlib.path</span> <span class="k">as</span> <span class="nn">path</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">s3fs</span>
 
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;numpy&#39;
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;pyproj&#39;
 </pre></div>
 </div>
 </div>
@@ -613,7 +629,7 @@ This will return an object containing the coordinates of the point you clicked, 
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#| eval: false</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1">#| output: false</span>
 <span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">data_map</span> <span class="o">=</span> <span class="n">interactive</span><span class="o">.</span><span class="n">Widget</span><span class="p">()</span>
@@ -634,7 +650,7 @@ This will return an object containing the coordinates of the point you clicked, 
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#| eval: false</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1">#| output: false</span>
 <span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">data_map</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
@@ -655,7 +671,7 @@ This will return an object containing the coordinates of the point you clicked, 
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">data_map</span><span class="o">.</span><span class="n">added_coords</span>
 
 <span class="ne">NameError</span>: name &#39;data_map&#39; is not defined
@@ -678,7 +694,7 @@ This will return an object containing the coordinates of the point you clicked, 
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">data_map</span><span class="o">.</span><span class="n">urls</span>
 
 <span class="ne">NameError</span>: name &#39;data_map&#39; is not defined
@@ -695,7 +711,7 @@ This will return an object containing the coordinates of the point you clicked, 
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">glacier</span> <span class="o">=</span> <span class="n">interactive</span><span class="o">.</span><span class="n">create_glacier_from_click</span><span class="p">(</span><span class="n">data_map</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 
 <span class="ne">NameError</span>: name &#39;interactive&#39; is not defined
@@ -712,7 +728,7 @@ This will return an object containing the coordinates of the point you clicked, 
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">glacier</span><span class="o">.</span><span class="n">rgi_id</span>
 
 <span class="ne">NameError</span>: name &#39;glacier&#39; is not defined
@@ -729,7 +745,7 @@ This will return an object containing the coordinates of the point you clicked, 
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">glacier_point</span> <span class="o">=</span> <span class="n">interactive</span><span class="o">.</span><span class="n">create_glacier_point_from_click</span><span class="p">(</span><span class="n">data_map</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;phony label&#39;</span><span class="p">)</span>
 
 <span class="ne">NameError</span>: name &#39;interactive&#39; is not defined
@@ -746,7 +762,7 @@ This will return an object containing the coordinates of the point you clicked, 
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">glacier_centerline</span> <span class="o">=</span> <span class="n">interactive</span><span class="o">.</span><span class="n">create_glacier_centerline_from_click</span><span class="p">(</span><span class="n">data_map</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 
 <span class="ne">NameError</span>: name &#39;interactive&#39; is not defined
@@ -764,7 +780,7 @@ This will return an object containing the coordinates of the point you clicked, 
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">glacier</span><span class="o">.</span><span class="n">outline_prj</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 
 <span class="ne">NameError</span>: name &#39;glacier&#39; is not defined
@@ -782,7 +798,7 @@ This will return an object containing the coordinates of the point you clicked, 
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">13</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">glacier_point</span><span class="o">.</span><span class="n">cube_around_point</span>
 
 <span class="ne">NameError</span>: name &#39;glacier_point&#39; is not defined
@@ -800,7 +816,7 @@ This will return an object containing the coordinates of the point you clicked, 
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">13</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">14</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">glacier_centerline</span><span class="o">.</span><span class="n">main_centerline</span>
 
 <span class="ne">NameError</span>: name &#39;glacier_centerline&#39; is not defined
@@ -856,7 +872,7 @@ This will return an object containing the coordinates of the point you clicked, 
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">17</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">18</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">glacier</span> <span class="o">=</span> <span class="n">programmatic_access</span><span class="o">.</span><span class="n">create_glacier_obj</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span><span class="n">rgiid</span><span class="p">,</span> <span class="n">utm</span><span class="p">)</span>
 
 <span class="ne">NameError</span>: name &#39;programmatic_access&#39; is not defined
@@ -873,7 +889,7 @@ This will return an object containing the coordinates of the point you clicked, 
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">18</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">19</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">glacier</span><span class="o">.</span><span class="n">name</span>
 
 <span class="ne">NameError</span>: name &#39;glacier&#39; is not defined
@@ -890,7 +906,7 @@ This will return an object containing the coordinates of the point you clicked, 
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">19</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">20</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">glacier</span><span class="o">.</span><span class="n">rgi_id</span>
 
 <span class="ne">NameError</span>: name &#39;glacier&#39; is not defined
@@ -907,7 +923,7 @@ This will return an object containing the coordinates of the point you clicked, 
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">20</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">21</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">glacier</span><span class="o">.</span><span class="n">outline_prj</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 
 <span class="ne">NameError</span>: name &#39;glacier&#39; is not defined
@@ -924,7 +940,7 @@ This will return an object containing the coordinates of the point you clicked, 
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">21</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">22</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">glacier_pt</span> <span class="o">=</span> <span class="n">programmatic_access</span><span class="o">.</span><span class="n">create_glacier_point_obj</span><span class="p">(</span><span class="n">point</span><span class="p">,</span> <span class="s1">&#39;label&#39;</span><span class="p">,</span> <span class="n">rgiid</span><span class="p">)</span>
 
 <span class="ne">NameError</span>: name &#39;programmatic_access&#39; is not defined
@@ -941,7 +957,7 @@ This will return an object containing the coordinates of the point you clicked, 
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">22</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">23</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">glacier_centerline</span> <span class="o">=</span> <span class="n">programmatic_access</span><span class="o">.</span><span class="n">create_glacier_centerline_obj</span><span class="p">(</span><span class="s1">&#39;label&#39;</span><span class="p">,</span> <span class="n">rgiid</span><span class="p">)</span>
 
 <span class="ne">NameError</span>: name &#39;programmatic_access&#39; is not defined
@@ -958,7 +974,7 @@ This will return an object containing the coordinates of the point you clicked, 
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">23</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">24</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">glacier_centerline</span><span class="o">.</span><span class="n">centerlines</span>
 
 <span class="ne">NameError</span>: name &#39;glacier_centerline&#39; is not defined
@@ -981,7 +997,7 @@ This will return an object containing the coordinates of the point you clicked, 
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">24</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">25</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">glacier_pt</span><span class="o">.</span><span class="n">point_gdf</span>
 
 <span class="ne">NameError</span>: name &#39;glacier_pt&#39; is not defined
@@ -998,7 +1014,7 @@ This will return an object containing the coordinates of the point you clicked, 
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">25</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">26</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">glacier_pt</span><span class="o">.</span><span class="n">cube_around_point</span>
 
 <span class="ne">NameError</span>: name &#39;glacier_pt&#39; is not defined
@@ -1019,7 +1035,7 @@ This will return an object containing the coordinates of the point you clicked, 
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">26</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">27</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">glacier_centerline</span> <span class="o">=</span> <span class="n">programmatic_access</span><span class="o">.</span><span class="n">create_glacier_centerline_obj</span><span class="p">(</span><span class="s1">&#39;Jorge Montt&#39;</span><span class="p">,</span> <span class="s1">&#39;RGI60-17.06074&#39;</span><span class="p">)</span>
 
 <span class="ne">NameError</span>: name &#39;programmatic_access&#39; is not defined
@@ -1036,7 +1052,7 @@ This will return an object containing the coordinates of the point you clicked, 
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">27</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">28</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">glacier_centerline</span>
 
 <span class="ne">NameError</span>: name &#39;glacier_centerline&#39; is not defined
@@ -1128,7 +1144,7 @@ However it suffers from one main problem: <strong>mid_dates</strong> (timestamps
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">28</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">29</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># In case you didn&#39;t run the cell that grabs the urls</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">coords</span><span class="p">,</span> <span class="n">gpdf</span><span class="p">,</span> <span class="n">urls</span> <span class="o">=</span> <span class="n">obj_setup</span><span class="o">.</span><span class="n">return_clicked_info</span><span class="p">(</span><span class="n">data_map</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># In case you haven&#39;t created the centerline</span>
@@ -1151,7 +1167,7 @@ We then gather all the dictionnaries into one for easier organization.</p>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">29</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">30</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">X_tot</span><span class="p">,</span> <span class="n">Y_tot</span><span class="p">,</span> <span class="n">X_valid</span><span class="p">,</span> <span class="n">Y_valid</span><span class="p">,</span> <span class="n">data_dict</span><span class="p">,</span> <span class="n">urls</span> <span class="o">=</span> <span class="n">invert</span><span class="o">.</span><span class="n">create_data_dict</span><span class="p">(</span><span class="n">urls</span><span class="p">,</span> <span class="n">mission</span><span class="p">,</span> <span class="n">lamb</span><span class="p">,</span> <span class="n">derivative</span><span class="p">,</span> <span class="n">day_interval</span><span class="p">,</span> <span class="n">data_map</span><span class="p">)</span>
 
 <span class="ne">NameError</span>: name &#39;invert&#39; is not defined
@@ -1173,7 +1189,7 @@ We then gather all the dictionnaries into one for easier organization.</p>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">30</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">31</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">for</span> <span class="n">url</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">urls</span><span class="p">))):</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="n">X_tot</span><span class="p">,</span> <span class="n">Y_tot</span><span class="p">,</span> <span class="n">X_valid</span><span class="p">,</span> <span class="n">Y_valid</span> <span class="o">=</span> <span class="n">invert</span><span class="o">.</span><span class="n">get_extents</span><span class="p">(</span><span class="n">urls</span><span class="p">[</span><span class="n">url</span><span class="p">],</span> <span class="n">X_tot</span><span class="p">,</span> <span class="n">Y_tot</span><span class="p">,</span> <span class="n">X_valid</span><span class="p">,</span> <span class="n">Y_valid</span><span class="p">,</span> <span class="n">mission</span><span class="p">,</span> <span class="n">lamb</span><span class="p">,</span> <span class="n">derivative</span><span class="p">,</span> <span class="n">day_interval</span><span class="p">,</span> <span class="n">data_map</span><span class="p">,</span> <span class="n">data_dict</span><span class="p">)</span>
 
@@ -1195,7 +1211,7 @@ It allows to run the inversion for glacier-points only, accross all the datacube
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">31</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">32</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">space_interval</span><span class="p">,</span> <span class="n">min_date</span><span class="p">,</span> <span class="n">max_date</span><span class="p">,</span> <span class="n">template</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">neighbor_idx</span><span class="p">,</span> <span class="n">x_indices_centerline</span><span class="p">,</span> <span class="n">y_indices_centerline</span><span class="p">,</span> <span class="n">X_arr</span><span class="p">,</span> <span class="n">X_MIN</span><span class="p">,</span> <span class="n">X_MAX</span><span class="p">,</span> <span class="n">Y_arr</span><span class="p">,</span> <span class="n">Y_MIN</span><span class="p">,</span> <span class="n">Y_MAX</span><span class="p">,</span> <span class="n">x_matches</span><span class="p">,</span> <span class="n">y_matches</span> <span class="o">=</span> <span class="n">invert</span><span class="o">.</span><span class="n">cubes_intersection</span><span class="p">(</span><span class="n">X_tot</span><span class="p">,</span> <span class="n">Y_tot</span><span class="p">,</span> <span class="n">X_valid</span><span class="p">,</span> <span class="n">Y_valid</span><span class="p">,</span> <span class="n">data_dict</span><span class="p">,</span> <span class="n">urls</span><span class="p">,</span> <span class="n">spatial_regularization</span><span class="p">,</span> <span class="n">mission</span><span class="p">,</span> <span class="n">lamb</span><span class="p">,</span> <span class="n">derivative</span><span class="p">,</span> <span class="n">day_interval</span><span class="p">,</span> <span class="n">sdate</span><span class="p">,</span> <span class="n">edate</span><span class="p">,</span> <span class="n">nb_pts_tot</span><span class="p">,</span> <span class="n">glacier_centerline</span><span class="p">)</span>
 
 <span class="ne">NameError</span>: name &#39;invert&#39; is not defined
@@ -1217,7 +1233,7 @@ It allows to run the inversion for glacier-points only, accross all the datacube
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">32</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">33</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">reg_mat_space</span><span class="p">,</span> <span class="n">reg_mat_time</span><span class="p">,</span> <span class="n">dates_nonum</span><span class="p">,</span> <span class="n">dates</span><span class="p">,</span> <span class="n">data_dict</span> <span class="o">=</span> <span class="n">invert</span><span class="o">.</span><span class="n">design_matrices</span><span class="p">(</span><span class="n">urls</span><span class="p">,</span> <span class="n">min_date</span><span class="p">,</span> <span class="n">max_date</span><span class="p">,</span> <span class="n">mission</span><span class="p">,</span> <span class="n">lamb</span><span class="p">,</span> <span class="n">derivative</span><span class="p">,</span> <span class="n">day_interval</span><span class="p">,</span> <span class="n">space_interval</span><span class="p">,</span> <span class="n">sdate</span><span class="p">,</span> <span class="n">edate</span><span class="p">,</span> <span class="n">data_dict</span><span class="p">)</span>
 
 <span class="ne">NameError</span>: name &#39;invert&#39; is not defined
@@ -1237,7 +1253,7 @@ It allows to run the inversion for glacier-points only, accross all the datacube
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">33</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">34</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">vxInv</span><span class="p">,</span> <span class="n">vyInv</span><span class="p">,</span> <span class="n">len_pt_inverted</span><span class="p">,</span> <span class="n">SRT</span><span class="p">,</span> <span class="n">SRS</span><span class="p">,</span> <span class="n">space_reg_mat</span><span class="p">,</span> <span class="n">time_reg_mat</span> <span class="o">=</span>  <span class="n">invert</span><span class="o">.</span><span class="n">extend_Matrices</span><span class="p">(</span><span class="n">reg_mat_time</span><span class="p">,</span> <span class="n">nb_pts_tot</span><span class="p">,</span> <span class="n">reg_mat_space</span><span class="p">,</span> <span class="n">spatial_regularization</span><span class="p">,</span> <span class="n">dates</span><span class="p">,</span> <span class="n">template</span><span class="p">)</span>
 
 <span class="ne">NameError</span>: name &#39;invert&#39; is not defined
@@ -1270,7 +1286,7 @@ It allows to run the inversion for glacier-points only, accross all the datacube
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">34</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">35</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Determine the GPU in your system if you have one</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="k">if</span> <span class="n">GPU</span><span class="p">:</span>     
 <span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="kn">import</span> <span class="nn">torch</span>
