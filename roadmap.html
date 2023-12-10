@@ -509,389 +509,6 @@ document.write(`
 <p>We demonstrate and make available two processing routines. Be sure to check out the accompanying <span class="xref myst">book</span> and consider if either of these are appropriate for your data and use case. Note that these methods are in active development and thus should be considered in <em>beta</em> phase. Please perform your own data inspection and due diligence if implementing these methods.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="s2">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="s2">&quot;hide-cell&quot;</span>
-    <span class="p">]</span>
-<span class="p">}</span>
-
-<span class="o">%</span><span class="k">pip</span> install numpy
-<span class="o">%</span><span class="k">pip</span> install pyproj
-<span class="o">%</span><span class="k">pip</span> install s3fs
-<span class="o">%</span><span class="k">pip</span> install xarray
-<span class="o">%</span><span class="k">pip</span> install shapely
-<span class="o">%</span><span class="k">pip</span> install matplotlib
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: numpy in /home/emmamarshall/miniconda3/envs/itslivetool_pyproj/lib/python3.12/site-packages (1.26.2)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Note: you may need to restart the kernel to use updated packages.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pyproj in /home/emmamarshall/miniconda3/envs/itslivetool_pyproj/lib/python3.12/site-packages (3.6.1)
-Requirement already satisfied: certifi in /home/emmamarshall/miniconda3/envs/itslivetool_pyproj/lib/python3.12/site-packages (from pyproj) (2023.11.17)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Note: you may need to restart the kernel to use updated packages.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: s3fs in /home/emmamarshall/miniconda3/envs/itslivetool_pyproj/lib/python3.12/site-packages (2023.12.1)
-Requirement already satisfied: aiobotocore&lt;3.0.0,&gt;=2.5.4 in /home/emmamarshall/miniconda3/envs/itslivetool_pyproj/lib/python3.12/site-packages (from s3fs) (2.8.0)
-Requirement already satisfied: fsspec==2023.12.1 in /home/emmamarshall/miniconda3/envs/itslivetool_pyproj/lib/python3.12/site-packages (from s3fs) (2023.12.1)
-Requirement already satisfied: aiohttp!=4.0.0a0,!=4.0.0a1 in /home/emmamarshall/miniconda3/envs/itslivetool_pyproj/lib/python3.12/site-packages (from s3fs) (3.9.1)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: botocore&lt;1.33.2,&gt;=1.32.4 in /home/emmamarshall/miniconda3/envs/itslivetool_pyproj/lib/python3.12/site-packages (from aiobotocore&lt;3.0.0,&gt;=2.5.4-&gt;s3fs) (1.33.1)
-Requirement already satisfied: wrapt&lt;2.0.0,&gt;=1.10.10 in /home/emmamarshall/miniconda3/envs/itslivetool_pyproj/lib/python3.12/site-packages (from aiobotocore&lt;3.0.0,&gt;=2.5.4-&gt;s3fs) (1.16.0)
-Requirement already satisfied: aioitertools&lt;1.0.0,&gt;=0.5.1 in /home/emmamarshall/miniconda3/envs/itslivetool_pyproj/lib/python3.12/site-packages (from aiobotocore&lt;3.0.0,&gt;=2.5.4-&gt;s3fs) (0.11.0)
-Requirement already satisfied: attrs&gt;=17.3.0 in /home/emmamarshall/miniconda3/envs/itslivetool_pyproj/lib/python3.12/site-packages (from aiohttp!=4.0.0a0,!=4.0.0a1-&gt;s3fs) (23.1.0)
-Requirement already satisfied: multidict&lt;7.0,&gt;=4.5 in /home/emmamarshall/miniconda3/envs/itslivetool_pyproj/lib/python3.12/site-packages (from aiohttp!=4.0.0a0,!=4.0.0a1-&gt;s3fs) (6.0.4)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: yarl&lt;2.0,&gt;=1.0 in /home/emmamarshall/miniconda3/envs/itslivetool_pyproj/lib/python3.12/site-packages (from aiohttp!=4.0.0a0,!=4.0.0a1-&gt;s3fs) (1.9.4)
-Requirement already satisfied: frozenlist&gt;=1.1.1 in /home/emmamarshall/miniconda3/envs/itslivetool_pyproj/lib/python3.12/site-packages (from aiohttp!=4.0.0a0,!=4.0.0a1-&gt;s3fs) (1.4.0)
-Requirement already satisfied: aiosignal&gt;=1.1.2 in /home/emmamarshall/miniconda3/envs/itslivetool_pyproj/lib/python3.12/site-packages (from aiohttp!=4.0.0a0,!=4.0.0a1-&gt;s3fs) (1.3.1)
-Requirement already satisfied: jmespath&lt;2.0.0,&gt;=0.7.1 in /home/emmamarshall/miniconda3/envs/itslivetool_pyproj/lib/python3.12/site-packages (from botocore&lt;1.33.2,&gt;=1.32.4-&gt;aiobotocore&lt;3.0.0,&gt;=2.5.4-&gt;s3fs) (1.0.1)
-Requirement already satisfied: python-dateutil&lt;3.0.0,&gt;=2.1 in /home/emmamarshall/miniconda3/envs/itslivetool_pyproj/lib/python3.12/site-packages (from botocore&lt;1.33.2,&gt;=1.32.4-&gt;aiobotocore&lt;3.0.0,&gt;=2.5.4-&gt;s3fs) (2.8.2)
-Requirement already satisfied: urllib3&lt;2.1,&gt;=1.25.4 in /home/emmamarshall/miniconda3/envs/itslivetool_pyproj/lib/python3.12/site-packages (from botocore&lt;1.33.2,&gt;=1.32.4-&gt;aiobotocore&lt;3.0.0,&gt;=2.5.4-&gt;s3fs) (2.0.7)
-Requirement already satisfied: idna&gt;=2.0 in /home/emmamarshall/miniconda3/envs/itslivetool_pyproj/lib/python3.12/site-packages (from yarl&lt;2.0,&gt;=1.0-&gt;aiohttp!=4.0.0a0,!=4.0.0a1-&gt;s3fs) (3.6)
-Requirement already satisfied: six&gt;=1.5 in /home/emmamarshall/miniconda3/envs/itslivetool_pyproj/lib/python3.12/site-packages (from python-dateutil&lt;3.0.0,&gt;=2.1-&gt;botocore&lt;1.33.2,&gt;=1.32.4-&gt;aiobotocore&lt;3.0.0,&gt;=2.5.4-&gt;s3fs) (1.16.0)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Note: you may need to restart the kernel to use updated packages.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: xarray in /home/emmamarshall/miniconda3/envs/itslivetool_pyproj/lib/python3.12/site-packages (2023.12.0)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: numpy&gt;=1.22 in /home/emmamarshall/miniconda3/envs/itslivetool_pyproj/lib/python3.12/site-packages (from xarray) (1.26.2)
-Requirement already satisfied: packaging&gt;=21.3 in /home/emmamarshall/miniconda3/envs/itslivetool_pyproj/lib/python3.12/site-packages (from xarray) (23.2)
-Requirement already satisfied: pandas&gt;=1.4 in /home/emmamarshall/miniconda3/envs/itslivetool_pyproj/lib/python3.12/site-packages (from xarray) (2.1.4)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: python-dateutil&gt;=2.8.2 in /home/emmamarshall/miniconda3/envs/itslivetool_pyproj/lib/python3.12/site-packages (from pandas&gt;=1.4-&gt;xarray) (2.8.2)
-Requirement already satisfied: pytz&gt;=2020.1 in /home/emmamarshall/miniconda3/envs/itslivetool_pyproj/lib/python3.12/site-packages (from pandas&gt;=1.4-&gt;xarray) (2023.3.post1)
-Requirement already satisfied: tzdata&gt;=2022.1 in /home/emmamarshall/miniconda3/envs/itslivetool_pyproj/lib/python3.12/site-packages (from pandas&gt;=1.4-&gt;xarray) (2023.3)
-Requirement already satisfied: six&gt;=1.5 in /home/emmamarshall/miniconda3/envs/itslivetool_pyproj/lib/python3.12/site-packages (from python-dateutil&gt;=2.8.2-&gt;pandas&gt;=1.4-&gt;xarray) (1.16.0)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Note: you may need to restart the kernel to use updated packages.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting shapely
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading shapely-2.0.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (7.0 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: numpy&gt;=1.14 in /home/emmamarshall/miniconda3/envs/itslivetool_pyproj/lib/python3.12/site-packages (from shapely) (1.26.2)
-Downloading shapely-2.0.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.5 MB)
-?25l
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   <span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0.0/2.5 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-   <span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0.0/2.5 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0.0/2.5 MB</span> <span class=" -Color -Color-Red">656.4 kB/s</span> eta <span class=" -Color -Color-Cyan">0:00:04</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0.1/2.5 MB</span> <span class=" -Color -Color-Red">1.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:02</span>
-   ━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0.2/2.5 MB</span> <span class=" -Color -Color-Red">1.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:02</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0.3/2.5 MB</span> <span class=" -Color -Color-Red">1.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:02</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0.5/2.5 MB</span> <span class=" -Color -Color-Red">2.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-   ━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0.6/2.5 MB</span> <span class=" -Color -Color-Red">2.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0.7/2.5 MB</span> <span class=" -Color -Color-Red">2.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0.8/2.5 MB</span> <span class=" -Color -Color-Red">2.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-   ━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0.9/2.5 MB</span> <span class=" -Color -Color-Red">2.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">1.0/2.5 MB</span> <span class=" -Color -Color-Red">2.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">1.2/2.5 MB</span> <span class=" -Color -Color-Red">2.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-   ━━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">1.3/2.5 MB</span> <span class=" -Color -Color-Red">3.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">1.5/2.5 MB</span> <span class=" -Color -Color-Red">3.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">1.7/2.5 MB</span> <span class=" -Color -Color-Red">3.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">1.7/2.5 MB</span> <span class=" -Color -Color-Red">3.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━</span> <span class=" -Color -Color-Green">2.0/2.5 MB</span> <span class=" -Color -Color-Red">3.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━</span> <span class=" -Color -Color-Green">2.2/2.5 MB</span> <span class=" -Color -Color-Red">3.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━</span> <span class=" -Color -Color-Green">2.3/2.5 MB</span> <span class=" -Color -Color-Red">3.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━</span> <span class=" -Color -Color-Green">2.5/2.5 MB</span> <span class=" -Color -Color-Red">3.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">2.5/2.5 MB</span> <span class=" -Color -Color-Red">3.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25h
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: shapely
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed shapely-2.0.2
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Note: you may need to restart the kernel to use updated packages.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting matplotlib
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading matplotlib-3.8.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (5.8 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting contourpy&gt;=1.0.1 (from matplotlib)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading contourpy-1.2.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (5.8 kB)
-Collecting cycler&gt;=0.10 (from matplotlib)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading cycler-0.12.1-py3-none-any.whl.metadata (3.8 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting fonttools&gt;=4.22.0 (from matplotlib)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading fonttools-4.46.0-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (156 kB)
-?25l     <span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0.0/156.2 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-     ━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">41.0/156.2 kB</span> <span class=" -Color -Color-Red">1.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━</span> <span class=" -Color -Color-Green">122.9/156.2 kB</span> <span class=" -Color -Color-Red">2.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">156.2/156.2 kB</span> <span class=" -Color -Color-Red">2.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25h
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting kiwisolver&gt;=1.3.1 (from matplotlib)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading kiwisolver-1.4.5-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.4 kB)
-Requirement already satisfied: numpy&lt;2,&gt;=1.21 in /home/emmamarshall/miniconda3/envs/itslivetool_pyproj/lib/python3.12/site-packages (from matplotlib) (1.26.2)
-Requirement already satisfied: packaging&gt;=20.0 in /home/emmamarshall/miniconda3/envs/itslivetool_pyproj/lib/python3.12/site-packages (from matplotlib) (23.2)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pillow&gt;=8 (from matplotlib)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading Pillow-10.1.0-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (9.5 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pyparsing&gt;=2.3.1 (from matplotlib)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading pyparsing-3.1.1-py3-none-any.whl.metadata (5.1 kB)
-Requirement already satisfied: python-dateutil&gt;=2.7 in /home/emmamarshall/miniconda3/envs/itslivetool_pyproj/lib/python3.12/site-packages (from matplotlib) (2.8.2)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: six&gt;=1.5 in /home/emmamarshall/miniconda3/envs/itslivetool_pyproj/lib/python3.12/site-packages (from python-dateutil&gt;=2.7-&gt;matplotlib) (1.16.0)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading matplotlib-3.8.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (11.6 MB)
-?25l   <span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0.0/11.6 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0.2/11.6 MB</span> <span class=" -Color -Color-Red">12.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-   ━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0.3/11.6 MB</span> <span class=" -Color -Color-Red">4.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:03</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0.4/11.6 MB</span> <span class=" -Color -Color-Red">4.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:03</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0.6/11.6 MB</span> <span class=" -Color -Color-Red">4.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:03</span>
-   ━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0.8/11.6 MB</span> <span class=" -Color -Color-Red">4.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:03</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0.8/11.6 MB</span> <span class=" -Color -Color-Red">4.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:03</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">1.2/11.6 MB</span> <span class=" -Color -Color-Red">4.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:03</span>
-   ━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">1.4/11.6 MB</span> <span class=" -Color -Color-Red">5.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:02</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">1.6/11.6 MB</span> <span class=" -Color -Color-Red">5.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:02</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">1.9/11.6 MB</span> <span class=" -Color -Color-Red">5.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:02</span>
-   ━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">2.2/11.6 MB</span> <span class=" -Color -Color-Red">5.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:02</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">2.4/11.6 MB</span> <span class=" -Color -Color-Red">5.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:02</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">2.7/11.6 MB</span> <span class=" -Color -Color-Red">6.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:02</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">3.1/11.6 MB</span> <span class=" -Color -Color-Red">6.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:02</span>
-   ━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">3.3/11.6 MB</span> <span class=" -Color -Color-Red">6.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:02</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">3.7/11.6 MB</span> <span class=" -Color -Color-Red">6.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:02</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.1/11.6 MB</span> <span class=" -Color -Color-Red">6.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:02</span>
-   ━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.2/11.6 MB</span> <span class=" -Color -Color-Red">6.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:02</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.6/11.6 MB</span> <span class=" -Color -Color-Red">7.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">5.0/11.6 MB</span> <span class=" -Color -Color-Red">7.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-   ━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">5.3/11.6 MB</span> <span class=" -Color -Color-Red">7.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">5.5/11.6 MB</span> <span class=" -Color -Color-Red">7.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">5.9/11.6 MB</span> <span class=" -Color -Color-Red">7.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-   ━━━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.5/11.6 MB</span> <span class=" -Color -Color-Red">7.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.8/11.6 MB</span> <span class=" -Color -Color-Red">7.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">7.2/11.6 MB</span> <span class=" -Color -Color-Red">8.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">7.6/11.6 MB</span> <span class=" -Color -Color-Red">8.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">7.9/11.6 MB</span> <span class=" -Color -Color-Red">8.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━</span> <span class=" -Color -Color-Green">8.4/11.6 MB</span> <span class=" -Color -Color-Red">8.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━</span> <span class=" -Color -Color-Green">8.9/11.6 MB</span> <span class=" -Color -Color-Red">8.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━</span> <span class=" -Color -Color-Green">9.4/11.6 MB</span> <span class=" -Color -Color-Red">8.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━</span> <span class=" -Color -Color-Green">9.6/11.6 MB</span> <span class=" -Color -Color-Red">8.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━</span> <span class=" -Color -Color-Green">10.3/11.6 MB</span> <span class=" -Color -Color-Red">8.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━</span> <span class=" -Color -Color-Green">10.5/11.6 MB</span> <span class=" -Color -Color-Red">9.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━</span> <span class=" -Color -Color-Green">10.9/11.6 MB</span> <span class=" -Color -Color-Red">9.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺</span> <span class=" -Color -Color-Green">11.4/11.6 MB</span> <span class=" -Color -Color-Red">10.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">11.6/11.6 MB</span> <span class=" -Color -Color-Red">10.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-   <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">11.6/11.6 MB</span> <span class=" -Color -Color-Red">10.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25hDownloading contourpy-1.2.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (303 kB)
-?25l   <span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0.0/303.9 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">303.9/303.9 kB</span> <span class=" -Color -Color-Red">17.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25hDownloading cycler-0.12.1-py3-none-any.whl (8.3 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading fonttools-4.46.0-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (4.9 MB)
-?25l   <span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0.0/4.9 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0.3/4.9 MB</span> <span class=" -Color -Color-Red">19.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-   ━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">1.0/4.9 MB</span> <span class=" -Color -Color-Red">16.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">1.4/4.9 MB</span> <span class=" -Color -Color-Red">14.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">2.2/4.9 MB</span> <span class=" -Color -Color-Red">16.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">2.3/4.9 MB</span> <span class=" -Color -Color-Red">13.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-   ━━━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">2.7/4.9 MB</span> <span class=" -Color -Color-Red">13.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">3.4/4.9 MB</span> <span class=" -Color -Color-Red">14.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━</span> <span class=" -Color -Color-Green">3.9/4.9 MB</span> <span class=" -Color -Color-Red">14.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━</span> <span class=" -Color -Color-Green">4.4/4.9 MB</span> <span class=" -Color -Color-Red">14.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">4.8/4.9 MB</span> <span class=" -Color -Color-Red">14.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-   <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.9/4.9 MB</span> <span class=" -Color -Color-Red">13.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25h
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading kiwisolver-1.4.5-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.5 MB)
-?25l   <span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0.0/1.5 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0.4/1.5 MB</span> <span class=" -Color -Color-Red">13.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━</span> <span class=" -Color -Color-Green">1.0/1.5 MB</span> <span class=" -Color -Color-Red">15.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━</span> <span class=" -Color -Color-Green">1.4/1.5 MB</span> <span class=" -Color -Color-Red">13.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-   <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">1.5/1.5 MB</span> <span class=" -Color -Color-Red">12.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25h
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading Pillow-10.1.0-cp312-cp312-manylinux_2_28_x86_64.whl (3.6 MB)
-?25l   <span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0.0/3.6 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0.3/3.6 MB</span> <span class=" -Color -Color-Red">10.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0.9/3.6 MB</span> <span class=" -Color -Color-Red">14.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-   ━━━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">1.6/3.6 MB</span> <span class=" -Color -Color-Red">15.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">1.9/3.6 MB</span> <span class=" -Color -Color-Red">14.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">2.5/3.6 MB</span> <span class=" -Color -Color-Red">14.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━</span> <span class=" -Color -Color-Green">3.3/3.6 MB</span> <span class=" -Color -Color-Red">16.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">3.6/3.6 MB</span> <span class=" -Color -Color-Red">15.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-   <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">3.6/3.6 MB</span> <span class=" -Color -Color-Red">14.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25h
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading pyparsing-3.1.1-py3-none-any.whl (103 kB)
-?25l   <span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0.0/103.1 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-   <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">103.1/103.1 kB</span> <span class=" -Color -Color-Red">24.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25h
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: pyparsing, pillow, kiwisolver, fonttools, cycler, contourpy, matplotlib
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed contourpy-1.2.0 cycler-0.12.1 fonttools-4.46.0 kiwisolver-1.4.5 matplotlib-3.8.2 pillow-10.1.0 pyparsing-3.1.1
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Note: you may need to restart the kernel to use updated packages.
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ITS_LIVE_TOOL</span> <span class="kn">import</span> <span class="n">datacube_tools</span><span class="p">,</span> <span class="n">interactive</span><span class="p">,</span> <span class="n">programmatic_access</span><span class="p">,</span> <span class="n">obj_setup</span><span class="p">,</span> <span class="n">preprocess</span><span class="p">,</span> <span class="n">invert</span>
 </pre></div>
 </div>
@@ -899,7 +516,7 @@ Requirement already satisfied: python-dateutil&gt;=2.7 in /home/emmamarshall/min
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">ITS_LIVE_TOOL</span> <span class="kn">import</span> <span class="n">datacube_tools</span><span class="p">,</span> <span class="n">interactive</span><span class="p">,</span> <span class="n">programmatic_access</span><span class="p">,</span> <span class="n">obj_setup</span><span class="p">,</span> <span class="n">preprocess</span><span class="p">,</span> <span class="n">invert</span>
 
 <span class="n">File</span> <span class="o">~/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">phd_work</span><span class="o">/</span><span class="n">ITS_LIVE_TOOL</span><span class="o">/</span><span class="n">ITS_LIVE_TOOL</span><span class="o">/</span><span class="n">interactive</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">8</span>
@@ -910,14 +527,14 @@ Requirement already satisfied: python-dateutil&gt;=2.7 in /home/emmamarshall/min
 <span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="c1"># %% ../nbs/02_interactive.ipynb 4</span>
 <span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="n">File</span> <span class="o">~/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">phd_work</span><span class="o">/</span><span class="n">ITS_LIVE_TOOL</span><span class="o">/</span><span class="n">ITS_LIVE_TOOL</span><span class="o">/</span><span class="n">obj_setup</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">21</span>
-<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="kn">import</span> <span class="nn">re</span>
-<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="kn">import</span> <span class="nn">tarfile</span>
-<span class="ne">---&gt; </span><span class="mi">21</span> <span class="kn">from</span> <span class="nn">owslib.wfs</span> <span class="kn">import</span> <span class="n">WebFeatureService</span>
+<span class="n">File</span> <span class="o">~/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">phd_work</span><span class="o">/</span><span class="n">ITS_LIVE_TOOL</span><span class="o">/</span><span class="n">ITS_LIVE_TOOL</span><span class="o">/</span><span class="n">obj_setup</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">24</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="kn">from</span> <span class="nn">owslib.wfs</span> <span class="kn">import</span> <span class="n">WebFeatureService</span>
 <span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="kn">from</span> <span class="nn">requests</span> <span class="kn">import</span> <span class="n">Request</span>
-<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
+<span class="ne">---&gt; </span><span class="mi">24</span> <span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
+<span class="g g-Whitespace">     </span><span class="mi">25</span> <span class="kn">import</span> <span class="nn">shapely</span>
+<span class="g g-Whitespace">     </span><span class="mi">26</span> <span class="kn">from</span> <span class="nn">shapely</span> <span class="kn">import</span> <span class="n">geometry</span>
 
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;owslib&#39;
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;geopandas&#39;
 </pre></div>
 </div>
 </div>
@@ -953,7 +570,7 @@ Requirement already satisfied: python-dateutil&gt;=2.7 in /home/emmamarshall/min
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">matplotlib.path</span> <span class="k">as</span> <span class="nn">path</span>
 <span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">s3fs</span>
 <span class="ne">----&gt; </span><span class="mi">6</span> <span class="kn">import</span> <span class="nn">zarr</span>
@@ -1005,7 +622,7 @@ This will return an object containing the coordinates of the point you clicked, 
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#| eval: false</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1">#| output: false</span>
 <span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">data_map</span> <span class="o">=</span> <span class="n">interactive</span><span class="o">.</span><span class="n">Widget</span><span class="p">()</span>
@@ -1026,7 +643,7 @@ This will return an object containing the coordinates of the point you clicked, 
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#| eval: false</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1">#| output: false</span>
 <span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">data_map</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
@@ -1047,7 +664,7 @@ This will return an object containing the coordinates of the point you clicked, 
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">data_map</span><span class="o">.</span><span class="n">added_coords</span>
 
 <span class="ne">NameError</span>: name &#39;data_map&#39; is not defined
@@ -1070,7 +687,7 @@ This will return an object containing the coordinates of the point you clicked, 
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">data_map</span><span class="o">.</span><span class="n">urls</span>
 
 <span class="ne">NameError</span>: name &#39;data_map&#39; is not defined
@@ -1087,7 +704,7 @@ This will return an object containing the coordinates of the point you clicked, 
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">glacier</span> <span class="o">=</span> <span class="n">interactive</span><span class="o">.</span><span class="n">create_glacier_from_click</span><span class="p">(</span><span class="n">data_map</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 
 <span class="ne">NameError</span>: name &#39;interactive&#39; is not defined
@@ -1104,7 +721,7 @@ This will return an object containing the coordinates of the point you clicked, 
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">glacier</span><span class="o">.</span><span class="n">rgi_id</span>
 
 <span class="ne">NameError</span>: name &#39;glacier&#39; is not defined
@@ -1121,7 +738,7 @@ This will return an object containing the coordinates of the point you clicked, 
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">glacier_point</span> <span class="o">=</span> <span class="n">interactive</span><span class="o">.</span><span class="n">create_glacier_point_from_click</span><span class="p">(</span><span class="n">data_map</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;phony label&#39;</span><span class="p">)</span>
 
 <span class="ne">NameError</span>: name &#39;interactive&#39; is not defined
@@ -1138,7 +755,7 @@ This will return an object containing the coordinates of the point you clicked, 
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">glacier_centerline</span> <span class="o">=</span> <span class="n">interactive</span><span class="o">.</span><span class="n">create_glacier_centerline_from_click</span><span class="p">(</span><span class="n">data_map</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 
 <span class="ne">NameError</span>: name &#39;interactive&#39; is not defined
@@ -1156,7 +773,7 @@ This will return an object containing the coordinates of the point you clicked, 
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">glacier</span><span class="o">.</span><span class="n">outline_prj</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 
 <span class="ne">NameError</span>: name &#39;glacier&#39; is not defined
@@ -1174,7 +791,7 @@ This will return an object containing the coordinates of the point you clicked, 
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">13</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">glacier_point</span><span class="o">.</span><span class="n">cube_around_point</span>
 
 <span class="ne">NameError</span>: name &#39;glacier_point&#39; is not defined
@@ -1192,7 +809,7 @@ This will return an object containing the coordinates of the point you clicked, 
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">14</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">13</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">glacier_centerline</span><span class="o">.</span><span class="n">main_centerline</span>
 
 <span class="ne">NameError</span>: name &#39;glacier_centerline&#39; is not defined
@@ -1248,7 +865,7 @@ This will return an object containing the coordinates of the point you clicked, 
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">18</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">17</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">glacier</span> <span class="o">=</span> <span class="n">programmatic_access</span><span class="o">.</span><span class="n">create_glacier_obj</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span><span class="n">rgiid</span><span class="p">,</span> <span class="n">utm</span><span class="p">)</span>
 
 <span class="ne">NameError</span>: name &#39;programmatic_access&#39; is not defined
@@ -1265,7 +882,7 @@ This will return an object containing the coordinates of the point you clicked, 
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">19</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">18</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">glacier</span><span class="o">.</span><span class="n">name</span>
 
 <span class="ne">NameError</span>: name &#39;glacier&#39; is not defined
@@ -1282,7 +899,7 @@ This will return an object containing the coordinates of the point you clicked, 
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">20</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">19</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">glacier</span><span class="o">.</span><span class="n">rgi_id</span>
 
 <span class="ne">NameError</span>: name &#39;glacier&#39; is not defined
@@ -1299,7 +916,7 @@ This will return an object containing the coordinates of the point you clicked, 
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">21</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">20</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">glacier</span><span class="o">.</span><span class="n">outline_prj</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 
 <span class="ne">NameError</span>: name &#39;glacier&#39; is not defined
@@ -1316,7 +933,7 @@ This will return an object containing the coordinates of the point you clicked, 
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">22</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">21</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">glacier_pt</span> <span class="o">=</span> <span class="n">programmatic_access</span><span class="o">.</span><span class="n">create_glacier_point_obj</span><span class="p">(</span><span class="n">point</span><span class="p">,</span> <span class="s1">&#39;label&#39;</span><span class="p">,</span> <span class="n">rgiid</span><span class="p">)</span>
 
 <span class="ne">NameError</span>: name &#39;programmatic_access&#39; is not defined
@@ -1333,7 +950,7 @@ This will return an object containing the coordinates of the point you clicked, 
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">23</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">22</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">glacier_centerline</span> <span class="o">=</span> <span class="n">programmatic_access</span><span class="o">.</span><span class="n">create_glacier_centerline_obj</span><span class="p">(</span><span class="s1">&#39;label&#39;</span><span class="p">,</span> <span class="n">rgiid</span><span class="p">)</span>
 
 <span class="ne">NameError</span>: name &#39;programmatic_access&#39; is not defined
@@ -1350,7 +967,7 @@ This will return an object containing the coordinates of the point you clicked, 
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">24</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">23</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">glacier_centerline</span><span class="o">.</span><span class="n">centerlines</span>
 
 <span class="ne">NameError</span>: name &#39;glacier_centerline&#39; is not defined
@@ -1373,7 +990,7 @@ This will return an object containing the coordinates of the point you clicked, 
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">25</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">24</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">glacier_pt</span><span class="o">.</span><span class="n">point_gdf</span>
 
 <span class="ne">NameError</span>: name &#39;glacier_pt&#39; is not defined
@@ -1390,7 +1007,7 @@ This will return an object containing the coordinates of the point you clicked, 
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">26</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">25</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">glacier_pt</span><span class="o">.</span><span class="n">cube_around_point</span>
 
 <span class="ne">NameError</span>: name &#39;glacier_pt&#39; is not defined
@@ -1411,7 +1028,7 @@ This will return an object containing the coordinates of the point you clicked, 
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">27</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">26</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">glacier_centerline</span> <span class="o">=</span> <span class="n">programmatic_access</span><span class="o">.</span><span class="n">create_glacier_centerline_obj</span><span class="p">(</span><span class="s1">&#39;Jorge Montt&#39;</span><span class="p">,</span> <span class="s1">&#39;RGI60-17.06074&#39;</span><span class="p">)</span>
 
 <span class="ne">NameError</span>: name &#39;programmatic_access&#39; is not defined
@@ -1428,7 +1045,7 @@ This will return an object containing the coordinates of the point you clicked, 
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">28</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">27</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">glacier_centerline</span>
 
 <span class="ne">NameError</span>: name &#39;glacier_centerline&#39; is not defined
@@ -1520,7 +1137,7 @@ However it suffers from one main problem: <strong>mid_dates</strong> (timestamps
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">29</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">28</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># In case you didn&#39;t run the cell that grabs the urls</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">coords</span><span class="p">,</span> <span class="n">gpdf</span><span class="p">,</span> <span class="n">urls</span> <span class="o">=</span> <span class="n">obj_setup</span><span class="o">.</span><span class="n">return_clicked_info</span><span class="p">(</span><span class="n">data_map</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># In case you haven&#39;t created the centerline</span>
@@ -1543,7 +1160,7 @@ We then gather all the dictionnaries into one for easier organization.</p>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">30</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">29</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">X_tot</span><span class="p">,</span> <span class="n">Y_tot</span><span class="p">,</span> <span class="n">X_valid</span><span class="p">,</span> <span class="n">Y_valid</span><span class="p">,</span> <span class="n">data_dict</span><span class="p">,</span> <span class="n">urls</span> <span class="o">=</span> <span class="n">invert</span><span class="o">.</span><span class="n">create_data_dict</span><span class="p">(</span><span class="n">urls</span><span class="p">,</span> <span class="n">mission</span><span class="p">,</span> <span class="n">lamb</span><span class="p">,</span> <span class="n">derivative</span><span class="p">,</span> <span class="n">day_interval</span><span class="p">,</span> <span class="n">data_map</span><span class="p">)</span>
 
 <span class="ne">NameError</span>: name &#39;invert&#39; is not defined
@@ -1565,7 +1182,7 @@ We then gather all the dictionnaries into one for easier organization.</p>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">31</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">30</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">for</span> <span class="n">url</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">urls</span><span class="p">))):</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="n">X_tot</span><span class="p">,</span> <span class="n">Y_tot</span><span class="p">,</span> <span class="n">X_valid</span><span class="p">,</span> <span class="n">Y_valid</span> <span class="o">=</span> <span class="n">invert</span><span class="o">.</span><span class="n">get_extents</span><span class="p">(</span><span class="n">urls</span><span class="p">[</span><span class="n">url</span><span class="p">],</span> <span class="n">X_tot</span><span class="p">,</span> <span class="n">Y_tot</span><span class="p">,</span> <span class="n">X_valid</span><span class="p">,</span> <span class="n">Y_valid</span><span class="p">,</span> <span class="n">mission</span><span class="p">,</span> <span class="n">lamb</span><span class="p">,</span> <span class="n">derivative</span><span class="p">,</span> <span class="n">day_interval</span><span class="p">,</span> <span class="n">data_map</span><span class="p">,</span> <span class="n">data_dict</span><span class="p">)</span>
 
@@ -1587,7 +1204,7 @@ It allows to run the inversion for glacier-points only, accross all the datacube
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">32</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">31</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">space_interval</span><span class="p">,</span> <span class="n">min_date</span><span class="p">,</span> <span class="n">max_date</span><span class="p">,</span> <span class="n">template</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">neighbor_idx</span><span class="p">,</span> <span class="n">x_indices_centerline</span><span class="p">,</span> <span class="n">y_indices_centerline</span><span class="p">,</span> <span class="n">X_arr</span><span class="p">,</span> <span class="n">X_MIN</span><span class="p">,</span> <span class="n">X_MAX</span><span class="p">,</span> <span class="n">Y_arr</span><span class="p">,</span> <span class="n">Y_MIN</span><span class="p">,</span> <span class="n">Y_MAX</span><span class="p">,</span> <span class="n">x_matches</span><span class="p">,</span> <span class="n">y_matches</span> <span class="o">=</span> <span class="n">invert</span><span class="o">.</span><span class="n">cubes_intersection</span><span class="p">(</span><span class="n">X_tot</span><span class="p">,</span> <span class="n">Y_tot</span><span class="p">,</span> <span class="n">X_valid</span><span class="p">,</span> <span class="n">Y_valid</span><span class="p">,</span> <span class="n">data_dict</span><span class="p">,</span> <span class="n">urls</span><span class="p">,</span> <span class="n">spatial_regularization</span><span class="p">,</span> <span class="n">mission</span><span class="p">,</span> <span class="n">lamb</span><span class="p">,</span> <span class="n">derivative</span><span class="p">,</span> <span class="n">day_interval</span><span class="p">,</span> <span class="n">sdate</span><span class="p">,</span> <span class="n">edate</span><span class="p">,</span> <span class="n">nb_pts_tot</span><span class="p">,</span> <span class="n">glacier_centerline</span><span class="p">)</span>
 
 <span class="ne">NameError</span>: name &#39;invert&#39; is not defined
@@ -1609,7 +1226,7 @@ It allows to run the inversion for glacier-points only, accross all the datacube
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">33</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">32</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">reg_mat_space</span><span class="p">,</span> <span class="n">reg_mat_time</span><span class="p">,</span> <span class="n">dates_nonum</span><span class="p">,</span> <span class="n">dates</span><span class="p">,</span> <span class="n">data_dict</span> <span class="o">=</span> <span class="n">invert</span><span class="o">.</span><span class="n">design_matrices</span><span class="p">(</span><span class="n">urls</span><span class="p">,</span> <span class="n">min_date</span><span class="p">,</span> <span class="n">max_date</span><span class="p">,</span> <span class="n">mission</span><span class="p">,</span> <span class="n">lamb</span><span class="p">,</span> <span class="n">derivative</span><span class="p">,</span> <span class="n">day_interval</span><span class="p">,</span> <span class="n">space_interval</span><span class="p">,</span> <span class="n">sdate</span><span class="p">,</span> <span class="n">edate</span><span class="p">,</span> <span class="n">data_dict</span><span class="p">)</span>
 
 <span class="ne">NameError</span>: name &#39;invert&#39; is not defined
@@ -1629,7 +1246,7 @@ It allows to run the inversion for glacier-points only, accross all the datacube
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">34</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">33</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">vxInv</span><span class="p">,</span> <span class="n">vyInv</span><span class="p">,</span> <span class="n">len_pt_inverted</span><span class="p">,</span> <span class="n">SRT</span><span class="p">,</span> <span class="n">SRS</span><span class="p">,</span> <span class="n">space_reg_mat</span><span class="p">,</span> <span class="n">time_reg_mat</span> <span class="o">=</span>  <span class="n">invert</span><span class="o">.</span><span class="n">extend_Matrices</span><span class="p">(</span><span class="n">reg_mat_time</span><span class="p">,</span> <span class="n">nb_pts_tot</span><span class="p">,</span> <span class="n">reg_mat_space</span><span class="p">,</span> <span class="n">spatial_regularization</span><span class="p">,</span> <span class="n">dates</span><span class="p">,</span> <span class="n">template</span><span class="p">)</span>
 
 <span class="ne">NameError</span>: name &#39;invert&#39; is not defined
@@ -1662,7 +1279,7 @@ It allows to run the inversion for glacier-points only, accross all the datacube
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">35</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">34</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Determine the GPU in your system if you have one</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="k">if</span> <span class="n">GPU</span><span class="p">:</span>     
 <span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="kn">import</span> <span class="nn">torch</span>
