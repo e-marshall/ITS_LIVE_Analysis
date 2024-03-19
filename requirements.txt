@@ -135,6 +135,7 @@ Pillow==9.0.1
 pluggy==0.13.0
 ply==3.11
 pop-transition==1.1.2
+pre-commit
 protobuf==3.12.4
 psutil==5.9.0
 py==1.10.0
